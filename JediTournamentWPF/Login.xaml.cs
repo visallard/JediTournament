@@ -28,7 +28,8 @@ namespace JediTournamentWPF
         private void SeConnecter(object sender, RoutedEventArgs e)
         {
             UtilisateurManager um = new UtilisateurManager();
-            if(um.CheckConnexionUser(login.Text.ToLower(), password.Password)) {
+            if (um.CheckConnexionUser(login.Text.ToLower(), password.Password))
+            {
                 MainWindow win = new MainWindow();
                 win.Show();
                 this.Close();
