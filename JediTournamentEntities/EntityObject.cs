@@ -10,6 +10,8 @@ namespace JediTournamentEntities
     {
         public int ID { get; set; }
 
+        public EntityObject() {}
+
         public EntityObject(int id)
         {
             ID = id;

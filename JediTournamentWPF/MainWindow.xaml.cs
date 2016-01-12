@@ -1,6 +1,9 @@
 ﻿using BusinessLayer;
+using JediTournamentEntities;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Serialization;
 
 namespace JediTournamentWPF
 {
@@ -56,7 +60,17 @@ namespace JediTournamentWPF
 
         private void buttonExporter_Click(object sender, RoutedEventArgs e)
         {
-
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.DefaultExt = ".xml";
+            sfd.FileName = "jedis.xml";
+            sfd.Filter = "XML File (*.xml)|*.xml";
+            if (sfd.ShowDialog(this) == true)
+            {
+                StreamWriter stream = new StreamWriter(sfd.FileName);
+                XmlSerializer serializer = new XmlSerializer(typeof(List<string>));
+                serializer.Serialize(stream, tm.GetJedis());
+                stream.Close();
+            }
         }
     }
 }

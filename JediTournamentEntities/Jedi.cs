@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace JediTournamentEntities
 {
@@ -11,6 +12,12 @@ namespace JediTournamentEntities
         public Dictionary<EDefCaracteristique, int> Caracteristiques { get; set; }
         public bool IsSith { get; set; }
         public string Nom { get; set; }
+
+        public Jedi()
+        {
+            Caracteristiques = new Dictionary<EDefCaracteristique, int>();
+        }
+
         public Jedi(int id,bool isSith,string nom)
             : base(id)
         {
