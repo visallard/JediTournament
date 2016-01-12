@@ -23,6 +23,13 @@ namespace BusinessLayer
             return liste;
         }
 
+        public List<string> GetCaracteristiques()
+        {
+            List<string> liste = new List<string>();
+            liste.AddRange(_dal.Caracteristiques.Select(s => s.ToString()));
+            return liste;
+        }
+
         public List<string> GetSiths()
         {
             List<string> liste = new List<string>();

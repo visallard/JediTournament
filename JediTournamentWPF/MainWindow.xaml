@@ -16,15 +16,14 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="buttonJedis" Content="Jedis" Grid.Column="0"/>
-            <Button x:Name="buttonStades" Content="Stades" Grid.Column="1"/>
-            <Button x:Name="buttonMatchs" Content="Matchs" Grid.Column="2"/>
-            <Button x:Name="buttonCaracteristiques" Content="Caractéristiques" Grid.Column="3"/>
-            <Button x:Name="buttonBonus" Content="Bonus" Grid.Column="4"/>
-            <Button x:Name="buttonExporter" Content="Exporter les Jedis" Grid.Column="5"/>
+            <Button x:Name="buttonJedis" Content="Jedis" Grid.Column="0" Click="buttonJedis_Click"/>
+            <Button x:Name="buttonStades" Content="Stades" Grid.Column="1" Click="buttonStades_Click"/>
+            <Button x:Name="buttonMatchs" Content="Matchs" Grid.Column="2" Click="buttonMatchs_Click"/>
+            <Button x:Name="buttonCaracteristiques" Content="Caractéristiques" Grid.Column="3" Click="buttonCaracteristiques_Click"/>
+            <Button x:Name="buttonBonus" Content="Bonus" Grid.Column="4" Click="buttonBonus_Click"/>
+            <Button x:Name="buttonExporter" Content="Exporter les Jedis" Grid.Column="5" Click="buttonExporter_Click"/>
         </Grid>
         <ListView x:Name="listView"  Grid.Row="1">
-            
         </ListView>
     </Grid>
 </Window>

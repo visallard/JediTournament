@@ -24,7 +24,7 @@ namespace JediTournamentWPF
         {
             try
             {
-                MessageBox.Show("Une erreur est survenue car nous sommes incompétent.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Une erreur est survenue.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
                 LogManager.Writelog(e.Exception.ToString()); 
                 e.Handled = true;
             }

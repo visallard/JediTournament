@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusinessLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,42 @@ namespace JediTournamentWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        private JediTournamentManager tm;
+
         public MainWindow()
         {
             InitializeComponent();
+            tm = new JediTournamentManager();
+        }
+
+        private void buttonStades_Click(object sender, RoutedEventArgs e)
+        {
+            listView.ItemsSource = tm.GetStades();
+        }
+
+        private void buttonJedis_Click(object sender, RoutedEventArgs e)
+        {
+            listView.ItemsSource = tm.GetJedis();
+        }
+
+        private void buttonMatchs_Click(object sender, RoutedEventArgs e)
+        {
+            listView.ItemsSource = tm.GetMatchs();
+        }
+
+        private void buttonCaracteristiques_Click(object sender, RoutedEventArgs e)
+        {
+            listView.ItemsSource = tm.GetCaracteristiques();
+        }
+
+        private void buttonBonus_Click(object sender, RoutedEventArgs e)
+        {
+            listView.ItemsSource = tm.GetSiths();
+        }
+
+        private void buttonExporter_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
