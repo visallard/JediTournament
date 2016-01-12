@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace JediTournamentEntities
 {
+    [Serializable]
     public abstract class EntityObject
     {
         public int ID { get; set; }

@@ -38,17 +38,17 @@ namespace StubDataAccessLayer
         {
             Jedis = new List<Jedi>();
             Jedis.Add(new Jedi(1, false, "Anakin"));
-            Jedis[0].Caracteristiques[EDefCaracteristique.Force] = 4;
-            Jedis[0].Caracteristiques[EDefCaracteristique.Sante]=60;
+            Jedis[0].Caracteristiques.Find(c => c.Definition == EDefCaracteristique.Force).Valeur=4;
+            Jedis[0].Caracteristiques.Find(c => c.Definition == EDefCaracteristique.Sante).Valeur = 60;
             Jedis.Add(new Jedi(2, false, "Jawa Thabeet"));
-            Jedis[1].Caracteristiques[EDefCaracteristique.Force] = 3;
-            Jedis[1].Caracteristiques[EDefCaracteristique.Sante] = 50;
+            Jedis[1].Caracteristiques.Find(c => c.Definition == EDefCaracteristique.Force).Valeur = 3;
+            Jedis[1].Caracteristiques.Find(c => c.Definition == EDefCaracteristique.Sante).Valeur = 50;
             Jedis.Add(new Jedi(3, true, "Dar vador"));
-            Jedis[2].Caracteristiques[EDefCaracteristique.Force] = 4;
-            Jedis[2].Caracteristiques[EDefCaracteristique.Sante] = 30;
+            Jedis[2].Caracteristiques.Find(c => c.Definition == EDefCaracteristique.Force).Valeur = 4;
+            Jedis[2].Caracteristiques.Find(c => c.Definition == EDefCaracteristique.Sante).Valeur = 30;
             Jedis.Add(new Jedi(4, true, "Jar Jar"));
-            Jedis[3].Caracteristiques[EDefCaracteristique.Force] = 2;
-            Jedis[3].Caracteristiques[EDefCaracteristique.Sante] = 60;
+            Jedis[3].Caracteristiques.Find(c => c.Definition == EDefCaracteristique.Force).Valeur = 2;
+            Jedis[3].Caracteristiques.Find(c => c.Definition == EDefCaracteristique.Sante).Valeur = 60;
         }
 
         private void InitStades()

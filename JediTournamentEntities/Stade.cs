@@ -8,13 +8,13 @@ namespace JediTournamentEntities
 {
     public class Stade : EntityObject
     {
-        public List<EDefCaracteristique> Caracteristiques { get; set; }
+        public List<Caracteristique> Caracteristiques { get; set; }
         public int NbPlaces { get; set; }
         public string Planete { get; set; }
 
         public Stade(int id,int nbPlaces,string planete):base(id)
         {
-            Caracteristiques = new List<EDefCaracteristique>();
+            Caracteristiques = new List<Caracteristique>();
             NbPlaces = nbPlaces;
             Planete = planete;
         }

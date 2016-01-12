@@ -17,7 +17,7 @@ namespace JediTournamentWPF
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            this.DispatcherUnhandledException += AppDispatcherUnhandledException;
+            //this.DispatcherUnhandledException += AppDispatcherUnhandledException;
         }
 
         private void AppDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)

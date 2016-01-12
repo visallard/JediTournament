@@ -16,38 +16,38 @@ namespace BusinessLayer
             _dal=new DalManager();
         }
 
-        public List<string> GetStades()
+        public List<Stade> GetStades()
         {
-            List<string> liste = new List<string>();
-            liste.AddRange(_dal.Stades.Select(s => s.ToString()));
+            List<Stade> liste = new List<Stade>();
+            liste.AddRange(_dal.Stades);
             return liste;
         }
 
-        public List<string> GetCaracteristiques()
+        public List<EDefCaracteristique> GetCaracteristiques()
         {
-            List<string> liste = new List<string>();
-            liste.AddRange(_dal.Caracteristiques.Select(s => s.ToString()));
+            List<EDefCaracteristique> liste = new List<EDefCaracteristique>();
+            liste.AddRange(_dal.Caracteristiques);
             return liste;
         }
 
-        public List<string> GetSiths()
+        public List<Jedi> GetSiths()
         {
-            List<string> liste = new List<string>();
-            liste.AddRange(_dal.Jedis.Where(j => j.IsSith).Select(j => j.ToString()));
+            List<Jedi> liste = new List<Jedi>();
+            liste.AddRange(_dal.Jedis.Where(j => j.IsSith));
             return liste;
         }
 
-        public List<string> GetJedis()
+        public List<Jedi> GetJedis()
         {
-            List<string> liste = new List<string>();
-            liste.AddRange(_dal.Jedis.Where(j => !j.IsSith && j.Caracteristiques[EDefCaracteristique.Force]>=3 && j.Caracteristiques[EDefCaracteristique.Sante]>=50).Select(j => j.ToString()));
+            List<Jedi> liste = new List<Jedi>();
+            liste.AddRange(_dal.Jedis.Where(j => !j.IsSith && j.Caracteristiques.Find(c => c.Definition==EDefCaracteristique.Force).Valeur>=3 && j.Caracteristiques.Find(c => c.Definition == EDefCaracteristique.Sante).Valeur >= 50));
             return liste;
         }
 
-        public List<string> GetMatchs()
+        public List<Match> GetMatchs()
         {
-            List<string> liste = new List<string>();
-            liste.AddRange(_dal.Matchs.Where(m => m.Stade.NbPlaces>200 && m.Jedi1.IsSith && m.Jedi2.IsSith).Select(m => m.ToString()));
+            List<Match> liste = new List<Match>();
+            liste.AddRange(_dal.Matchs.Where(m => m.Stade.NbPlaces>200 && m.Jedi1.IsSith && m.Jedi2.IsSith));
             return liste;
         }
     }

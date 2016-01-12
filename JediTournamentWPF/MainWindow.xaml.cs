@@ -67,7 +67,7 @@ namespace JediTournamentWPF
             if (sfd.ShowDialog(this) == true)
             {
                 StreamWriter stream = new StreamWriter(sfd.FileName);
-                XmlSerializer serializer = new XmlSerializer(typeof(List<string>));
+                XmlSerializer serializer = new XmlSerializer(typeof(List<Jedi>));
                 serializer.Serialize(stream, tm.GetJedis());
                 stream.Close();
             }

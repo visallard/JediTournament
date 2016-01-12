@@ -3,16 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace JediTournamentEntities
 {
-    public class Caracteristiques : EntityObject
+    [Serializable]
+    public class Caracteristique : EntityObject
     {
-        public string Definition { get; set; }
+        public EDefCaracteristique Definition { get; set; }
         public string Nom { get; set; }
         public ETypeCarecteristique Type { get; set; }
         public int Valeur { get; set; }
-        public Caracteristiques(int id,string definition,string nom,ETypeCarecteristique type,int valeur)
+
+        public Caracteristique() : base() {}
+
+        public Caracteristique(int id, EDefCaracteristique definition,string nom,ETypeCarecteristique type,int valeur)
             : base(id)
         {
             Definition = definition;
