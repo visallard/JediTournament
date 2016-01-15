@@ -37,16 +37,16 @@ namespace StubDataAccessLayer
         private void InitJedis()
         {
             Jedis = new List<Jedi>();
-            Jedis.Add(new Jedi(1, false, "Anakin"));
+            Jedis.Add(new Jedi(1, false, "Anakin Skywalker"));
             Jedis[0].Caracteristiques.Find(c => c.Definition == EDefCaracteristique.Force).Valeur=4;
             Jedis[0].Caracteristiques.Find(c => c.Definition == EDefCaracteristique.Sante).Valeur = 60;
-            Jedis.Add(new Jedi(2, false, "Jawa Thabeet"));
+            Jedis.Add(new Jedi(2, false, "Jawal Thabeet"));
             Jedis[1].Caracteristiques.Find(c => c.Definition == EDefCaracteristique.Force).Valeur = 3;
             Jedis[1].Caracteristiques.Find(c => c.Definition == EDefCaracteristique.Sante).Valeur = 50;
-            Jedis.Add(new Jedi(3, true, "Dar vador"));
+            Jedis.Add(new Jedi(3, true, "Darth Vader"));
             Jedis[2].Caracteristiques.Find(c => c.Definition == EDefCaracteristique.Force).Valeur = 4;
             Jedis[2].Caracteristiques.Find(c => c.Definition == EDefCaracteristique.Sante).Valeur = 30;
-            Jedis.Add(new Jedi(4, true, "Jar Jar"));
+            Jedis.Add(new Jedi(4, true, "Jar Jar Binks"));
             Jedis[3].Caracteristiques.Find(c => c.Definition == EDefCaracteristique.Force).Valeur = 2;
             Jedis[3].Caracteristiques.Find(c => c.Definition == EDefCaracteristique.Sante).Valeur = 60;
         }
@@ -54,10 +54,10 @@ namespace StubDataAccessLayer
         private void InitStades()
         {
             Stades = new List<Stade>();
-            Stades.Add(new Stade(1, 500, "Moustafar"));
+            Stades.Add(new Stade(1, 500, "Mustafar"));
             Stades.Add(new Stade(2, 1500, "Tatooine"));
-            Stades.Add(new Stade(3, 1000, "Corucentre"));
-            Stades.Add(new Stade(4, 2000, "jakku"));
+            Stades.Add(new Stade(3, 1000, "Coruscant"));
+            Stades.Add(new Stade(4, 2000, "Jakku"));
         }
 
         private void InitMatchs()
