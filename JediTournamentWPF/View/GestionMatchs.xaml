@@ -1,0 +1,16 @@
+﻿<Window x:Class="JediTournamentWPF.View.GestionMatchs"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JediTournamentWPF.View"
+        mc:Ignorable="d"
+        Title="Gestion des Matchs" Height="300" Width="300">
+    <DockPanel>
+        <Button x:Name="buttonadd" Content="Ajouter" Command="{Binding AddEntry}" DockPanel.Dock="Top"/>
+        <Button x:Name="buttonmod" Content="Modifier" Command="{Binding ModEntry}" DockPanel.Dock="Top"/>
+        <Button x:Name="buttondel" Content="Supprimer" Command="{Binding DelEntry}" DockPanel.Dock="Top"/>
+        <ListBox x:Name="listBox" ItemsSource="{Binding}"/>
+
+    </DockPanel>
+</Window>
