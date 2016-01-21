@@ -5,12 +5,64 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JediTournamentWPF.View"
         mc:Ignorable="d"
-        Title="Gestion des Matchs" Height="300" Width="300">
-    <DockPanel>
-        <Button x:Name="buttonadd" Content="Ajouter" Command="{Binding AddEntry}" DockPanel.Dock="Top"/>
-        <Button x:Name="buttonmod" Content="Modifier" Command="{Binding ModEntry}" DockPanel.Dock="Top"/>
-        <Button x:Name="buttondel" Content="Supprimer" Command="{Binding DelEntry}" DockPanel.Dock="Top"/>
-        <ListBox x:Name="listBox" ItemsSource="{Binding}"/>
+        Title="Gestion des Matchs" Height="300" Width="726.493">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBlock Text="Gestion Matchs" FontSize="20"/>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+            <Grid x:Name="gridEdition">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <TextBlock Text="Vainqueur : " FontSize="14" />
+                <TextBox Text="{Binding Vainqueur}" Grid.Column="1" />
+                <TextBlock Text="Jedi 1 : " FontSize="14" Grid.Row="1" />
+                <TextBox Text="{Binding Jedi1}" Grid.Column="1" Grid.Row="1" />
+                <TextBlock Text="Jedi 2 : " FontSize="14" Grid.Row="2" />
+                <TextBox Text="{Binding Jedi2}" Grid.Column="1" Grid.Row="2" />
+                <TextBlock Text="Phase du Tournoi : " FontSize="14" Grid.Row="3" />
+                <TextBox Text="{Binding phaseTournoi}" Grid.Column="1" Grid.Row="3" />
+                <TextBlock Text="Stade : " FontSize="14" Grid.Row="4" />
+                <TextBox Text="{Binding Stade}" Grid.Column="1" Grid.Row="4" />
 
-    </DockPanel>
+
+                <Button Content="Supprimer" Grid.Row="5" x:Name="btnSupprimer" Margin="10,110,26.8,10" Width="80"/>
+                <Button Content="Ajouter" Grid.Row="5" x:Name="btnAjouter" Margin="10,73,26.8,47" Width="80"/>
+            </Grid>
+            <ListBox Grid.Column="1" x:Name="listMatch">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Vainqueur}" />
+                            <TextBlock Text=" " />
+                            <TextBlock Text="{Binding Jedi1}" />
+                            <TextBlock Text=" " />
+                            <TextBlock Text="{Binding Jedi2}" />
+                            <TextBlock Text=" " />
+                            <TextBlock Text="{Binding phaseTournoi}" />
+                            <TextBlock Text=" " />
+                            <TextBlock Text="{Binding Stade}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+    </Grid>
 </Window>

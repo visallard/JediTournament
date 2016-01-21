@@ -19,9 +19,14 @@ namespace JediTournamentWPF.View
     /// </summary>
     public partial class GestionMatchs : Window
     {
+
+        List<JediTournamentEntities.Match> listMatches;
+
         public GestionMatchs()
         {
             InitializeComponent();
+            BusinessLayer.JediTournamentManager tm = new BusinessLayer.JediTournamentManager();
+            listMatches = tm.GetMatchs();
         }
     }
 }
