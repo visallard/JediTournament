@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JediTournamentWPF.View"
         mc:Ignorable="d"
-        Title="Gestion des Matchs" Height="300" Width="726.493">
+        Title="Gestion des Matchs" Height="300" Width="726.493" Foreground="Black">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
