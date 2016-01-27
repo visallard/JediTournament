@@ -4,69 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using JediTournamentEntities;
+using System.Data.SqlClient;
+using System.Data;
+using System.Security;
 
 namespace DataAccessLayer
 {
-    class AzureDataAccess : DataAccess
+    partial class AzureDataAccess : DataAccess
     {
-        public void addJedi(Jedi jedi)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void addMatch(Match match)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void addStade(Stade stade)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void deleteJedi(Jedi jedi)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void deleteMatch(Match match)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void deleteStade(Stade stade)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Jedi> GetJedis()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Match> GetMatchs()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Stade> GetStades()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void updateJedi(Jedi jedi)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void updateMatch(Match match)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void updateStade(Stade stade)
-        {
-            throw new NotImplementedException();
-        }
+        private string _connectionString = "Data Source=jeditournament.database.windows.net;Initial Catalog=\"Jedi Tournament\";Integrated Security=False;User ID=anakin;Password=Skywalker63;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
     }
 }

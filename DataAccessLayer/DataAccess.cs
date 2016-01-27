@@ -9,20 +9,24 @@ namespace DataAccessLayer
 {
     interface DataAccess
     {
+        Jedi GetJedi(int Id);
+        Match GetMatch(int Id);
+        Stade GetStade(int Id);
+
         List<Jedi> GetJedis();
         List<Match> GetMatchs();
         List<Stade> GetStades();
 
-        void addJedi(Jedi jedi);
-        void addMatch(Match match);
-        void addStade(Stade stade);
+        void AddJedi(Jedi jedi);
+        void AddMatch(Match match);
+        void AddStade(Stade stade);
 
-        void updateJedi(Jedi jedi);
-        void updateMatch(Match match);
-        void updateStade(Stade stade);
+        void UpdateJedi(Jedi jedi);
+        void UpdateMatch(Match match);
+        void UpdateStade(Stade stade);
 
-        void deleteJedi(Jedi jedi);
-        void deleteMatch(Match match);
-        void deleteStade(Stade stade);
+        void DeleteJedi(Jedi jedi);
+        void DeleteMatch(Match match);
+        void DeleteStade(Stade stade);
     }
 }

@@ -19,65 +19,65 @@ namespace DataAccessLayer
             _DataAccess = new AzureDataAccess();
         }
 
-        List<Jedi> GetJedis()
+        public List<Jedi> GetJedis()
         {
             return _DataAccess.GetJedis();
         }
 
-        List<Match> GetMatchs()
+        public List<Match> GetMatchs()
         {
             return _DataAccess.GetMatchs();
         }
 
-        List<Stade> GetStades()
+        public List<Stade> GetStades()
         {
             return _DataAccess.GetStades();
         }
 
 
-        void addJedi(Jedi jedi)
+        public void AddJedi(Jedi jedi)
         {
-            _DataAccess.addJedi(jedi);
+            _DataAccess.AddJedi(jedi);
         }
 
-        void addMatch(Match match)
+        public void AddMatch(Match match)
         {
-            _DataAccess.addMatch(match);
+            _DataAccess.AddMatch(match);
         }
 
-        void addStade(Stade stade)
+        public void AddStade(Stade stade)
         {
-            _DataAccess.addStade(stade);
+            _DataAccess.AddStade(stade);
         }
 
-        void updateJedi(Jedi jedi)
+        public void UpdateJedi(Jedi jedi)
         {
-            _DataAccess.updateJedi(jedi);
+            _DataAccess.UpdateJedi(jedi);
         }
 
-        void updateMatch(Match match)
+        public void UpdateMatch(Match match)
         {
-            _DataAccess.updateMatch(match);
+            _DataAccess.UpdateMatch(match);
         }
 
-        void updateStade(Stade stade)
+        public void UpdateStade(Stade stade)
         {
-            _DataAccess.updateStade(stade);
+            _DataAccess.UpdateStade(stade);
         }
 
-        void deleteJedi(Jedi jedi)
+        public void DeleteJedi(Jedi jedi)
         {
-            _DataAccess.deleteJedi(jedi);
+            _DataAccess.DeleteJedi(jedi);
         }
 
-        void deleteMatch(Match match)
+        public void DeleteMatch(Match match)
         {
-            _DataAccess.deleteMatch(match);
+            _DataAccess.DeleteMatch(match);
         }
 
-        void deleteStade(Stade stade)
+        public void DeleteStade(Stade stade)
         {
-            _DataAccess.deleteStade(stade);
+            _DataAccess.DeleteStade(stade);
         }
 
         public static DalManager Instance
@@ -90,7 +90,7 @@ namespace DataAccessLayer
                     {
                         if (_instance == null)
                         {
-                            _ instance = new DalManager();
+                            _instance = new DalManager();
                         }
                     }
                 }
