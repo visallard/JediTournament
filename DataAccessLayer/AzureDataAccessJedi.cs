@@ -39,8 +39,9 @@ namespace DataAccessLayer
             Jedi jedi=null;
             using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
             {
-                string query = string.Format("SELECT Id, Nom, IsSith FROM Jedi WHERE Id={0}", Id);
+                string query = "SELECT Id, Nom, IsSith FROM Jedi WHERE Id=@id";
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                sqlCommand.Parameters.AddWithValue("@id", Id);
                 sqlConnection.Open();
                 SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
                 while (sqlDataReader.Read())
@@ -62,6 +63,18 @@ namespace DataAccessLayer
                 sqlCommand.Parameters.AddWithValue("@isSith", jedi.IsSith);
                 sqlConnection.Open();
                 sqlCommand.ExecuteNonQuery();
+                sqlConnection.Close();
+            }
+            using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
+            {
+                string query = "SELECT IDENT_CURRENT(‘Jedi’)";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                sqlConnection.Open();
+                SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+                while (sqlDataReader.Read())
+                {
+                    jedi.ID = sqlDataReader.GetInt32(JEDI_ID);
+                }
                 sqlConnection.Close();
             }
         }

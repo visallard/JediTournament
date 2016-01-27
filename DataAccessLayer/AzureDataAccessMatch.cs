@@ -19,6 +19,23 @@ namespace DataAccessLayer
         private const int MATCH_STADE = 4;
         private const int MATCH_VAINQUEUR = 5;
 
+        private Match SqlDataReaderToMatch(SqlDataReader sqlDataReader)
+        {
+            Stade stade = GetStade(sqlDataReader.GetInt32(MATCH_STADE));
+            Jedi jedi1 = GetJedi(sqlDataReader.GetInt32(MATCH_JEDI_1));
+            Jedi jedi2 = GetJedi(sqlDataReader.GetInt32(MATCH_JEDI_2));
+            Jedi vainqueur = null;
+            if (jedi1.ID == sqlDataReader.GetInt32(MATCH_VAINQUEUR))
+            {
+                vainqueur = jedi1;
+            }
+            else if (jedi2.ID == sqlDataReader.GetInt32(MATCH_VAINQUEUR))
+            {
+                vainqueur = jedi2;
+            }
+            return new Match(sqlDataReader.GetInt32(MATCH_ID), vainqueur, jedi1, jedi2, (EPhaseTournoi) sqlDataReader.GetInt32(MATCH_PHASE_TOURNOI), stade);
+        }
+
         public List<Match> GetMatchs()
         {
             List<Match> matchs = new List<Match>();
@@ -30,9 +47,7 @@ namespace DataAccessLayer
                 SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
                 while (sqlDataReader.Read())
                 {
-                    Match match = new Match();
-
-                    //matchs.Add(new Match(sqlDataReader.GetInt32(MATCH_ID), sqlDataReader.GetString(MATCH_JEDI_1), sqlDataReader.GetBoolean(JEDI_IS_SITH)));
+                    matchs.Add(SqlDataReaderToMatch(sqlDataReader));
                 }
                 sqlConnection.Close();
             }
@@ -42,7 +57,21 @@ namespace DataAccessLayer
 
         public Match GetMatch(int Id)
         {
-            throw new NotImplementedException();
+            Match match = null;
+            using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
+            {
+                string query = "SELECT Id, Jedi1, Jedi2, PhaseTournoi, Stade, Vainqueur FROM Match WHERE Id=@id";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                sqlCommand.Parameters.AddWithValue("@id", Id);
+                sqlConnection.Open();
+                SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+                while (sqlDataReader.Read())
+                {
+                    match=SqlDataReaderToMatch(sqlDataReader);
+                }
+                sqlConnection.Close();
+            }
+            return match;
         }
 
         public void AddMatch(Match match)
