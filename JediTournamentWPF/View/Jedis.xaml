@@ -5,16 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JediTournamentWPF.View"
         mc:Ignorable="d"
-        Title="Jedis" Height="300" Width="300" Loaded="Window_Loaded">
+        Title="Jedis" Height="305.393" Width="306.067" Loaded="Window_Loaded">
     <Grid>
         <ListView  
-            Name="jedisListView"
-            ItemsSource="{Binding Jedis}">
+            Name="jedisListView" Margin="0,0,0,144">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Nom}"/>
                 </GridView>
             </ListView.View>
         </ListView>
+        <local:Jedi HorizontalAlignment="Left" Height="117" Margin="10,147,0,0" VerticalAlignment="Top" Width="278"/>
     </Grid>
 </Window>

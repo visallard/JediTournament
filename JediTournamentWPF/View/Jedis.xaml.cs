@@ -31,7 +31,7 @@ namespace JediTournamentWPF.View
         {
             // récupération des artistes
             JediTournamentManager jm = new JediTournamentManager();
-            List<Jedi> jedis = jm.GetJedis();
+            List<JediTournamentEntities.Jedi> jedis = jm.GetJedis();
 
             // Initialisation du viewModel
             JedisModelView jmv = new JedisModelView(jedis);
