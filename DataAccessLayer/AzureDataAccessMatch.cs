@@ -36,13 +36,17 @@ namespace DataAccessLayer
             return new Match(sqlDataReader.GetInt32(MATCH_ID), vainqueur, jedi1, jedi2, (EPhaseTournoi) sqlDataReader.GetInt32(MATCH_PHASE_TOURNOI), stade);
         }
 
-        public List<Match> GetMatchs()
+        public List<Match> GetMatchs(int idTournoi = 0)
         {
             List<Match> matchs = new List<Match>();
             using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
             {
                 string query = "SELECT Id, Jedi1, Jedi2, PhaseTournoi, Stade, Vainqueur FROM Match";
+                if (idTournoi != 0)
+                    query += " WHERE Tournois=@tournois";
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                if (idTournoi != 0)
+                    sqlCommand.Parameters.AddWithValue("@tournoi", idTournoi);
                 sqlConnection.Open();
                 SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
                 while (sqlDataReader.Read())

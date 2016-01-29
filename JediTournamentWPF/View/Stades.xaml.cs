@@ -18,24 +18,24 @@ using System.Windows.Shapes;
 namespace JediTournamentWPF.View
 {
     /// <summary>
-    /// Logique d'interaction pour Jedis.xaml
+    /// Logique d'interaction pour Stades.xaml
     /// </summary>
-    public partial class Jedis : Window
+    public partial class Stades : Window
     {
-        public Jedis()
+        public Stades()
         {
             InitializeComponent();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            // récupération des artistes
+            // récupération des stades
             JediTournamentManager jm = new JediTournamentManager();
-            List<JediTournamentEntities.Jedi> jedis = jm.GetJedis();
+            List<Stade> stades = jm.GetStades();
 
             // Initialisation du viewModel
-            JedisModelView jmv = new JedisModelView(jedis);
-            jedisListView.DataContext = jmv;
+            StadesModelView jmv = new StadesModelView(stades);
+            stadesListView.DataContext = jmv;
         }
     }
 }

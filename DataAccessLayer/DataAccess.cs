@@ -15,7 +15,7 @@ namespace DataAccessLayer
         Tournoi GetTournoi(int Id);
 
         List<Jedi> GetJedis();
-        List<Match> GetMatchs();
+        List<Match> GetMatchs(int idTournoi=0);
         List<Stade> GetStades();
         List<Tournoi> GetTournois();
 
