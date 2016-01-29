@@ -12,6 +12,14 @@ namespace DataAccessLayer
 {
     partial class AzureDataAccess
     {
+        private const int TOURNOI_ID = 0;
+        private const int TOURNOI_NOM = 1;
+
+        private Tournoi SqlDataReaderToTournoi(SqlDataReader sqlDataReader)
+        {
+            return new Tournoi(sqlDataReader.GetInt32(TOURNOI_ID),sqlDataReader.GetString(TOURNOI_NOM), GetMatchs(sqlDataReader.GetInt32(TOURNOI_ID)));
+        }
+
         public void AddTournoi(Tournoi tournoi)
         {
             throw new NotImplementedException();
@@ -24,12 +32,39 @@ namespace DataAccessLayer
 
         public Tournoi GetTournoi(int Id)
         {
-            throw new NotImplementedException();
+            Tournoi tournoi = null;
+            using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
+            {
+                string query = "SELECT Id, Nom FROM Tournois WHERE Id=@id";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                sqlCommand.Parameters.AddWithValue("@id", Id);
+                sqlConnection.Open();
+                SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+                while (sqlDataReader.Read())
+                {
+                    tournoi = SqlDataReaderToTournoi(sqlDataReader);
+                }
+                sqlConnection.Close();
+            }
+            return tournoi;
         }
 
         public List<Tournoi> GetTournois()
         {
-            throw new NotImplementedException();
+            List<Tournoi> tournois = new List<Tournoi>();
+            using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
+            {
+                string query = "SELECT Id, Nom FROM Tournois";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                sqlConnection.Open();
+                SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+                while (sqlDataReader.Read())
+                {
+                    tournois.Add(SqlDataReaderToTournoi(sqlDataReader));
+                }
+                sqlConnection.Close();
+            }
+            return tournois;
         }
 
         public void UpdateTournoi(Tournoi tournoi)

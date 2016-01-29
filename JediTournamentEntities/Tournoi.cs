@@ -11,9 +11,14 @@ namespace JediTournamentEntities
         public List<Match> Matchs { get; set; }
         public string Nom { get; set; }
         public Tournoi(int id,string nom)
+            : this(id, nom, new List<Match>())
+        {
+        }
+
+        public Tournoi(int id, string nom, List<Match> matchs)
             : base(id)
         {
-            Matchs = new List<Match>();
+            Matchs = matchs;
             Nom = nom;
         }
     }
