@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace JediTournamentEntities
 {
+    [Serializable]
     public class Stade : EntityObject
     {
         public List<Caracteristique> Caracteristiques { get; set; }
