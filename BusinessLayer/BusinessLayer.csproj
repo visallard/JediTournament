@@ -41,7 +41,6 @@
   <ItemGroup>
     <Compile Include="JediTournamentManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DALTest.cs" />
     <Compile Include="UtilisateurManager.cs" />
   </ItemGroup>
   <ItemGroup>
