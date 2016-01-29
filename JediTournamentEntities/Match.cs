@@ -8,15 +8,19 @@ namespace JediTournamentEntities
 {
     public class Match : EntityObject
     {
-        public int IdJediVainqueur { get; set; }
+        public Jedi Vainqueur { get; set; }
         public Jedi Jedi1 { get; set; }
         public Jedi Jedi2 { get; set; }
         public EPhaseTournoi PhaseTournoi { get; set; }
         public Stade Stade { get; set; }
 
-        public Match(int id,int idJediVainqueur,Jedi jedi1,Jedi jedi2,EPhaseTournoi phaseTournoi,Stade stade):base(id)
+        public Match()
         {
-            IdJediVainqueur = idJediVainqueur;
+        }
+
+        public Match(int id,Jedi vainqueur,Jedi jedi1,Jedi jedi2,EPhaseTournoi phaseTournoi,Stade stade):base(id)
+        {
+            Vainqueur = vainqueur;
             Jedi1 = jedi1;
             Jedi2 = jedi2;
             PhaseTournoi = phaseTournoi;

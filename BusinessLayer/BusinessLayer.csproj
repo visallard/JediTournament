@@ -44,13 +44,13 @@
     <Compile Include="UtilisateurManager.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
+      <Project>{b558e9d6-8233-4f1b-adfe-9a89e6c6932f}</Project>
+      <Name>DataAccessLayer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\JediTournamentEntities\JediTournamentEntities.csproj">
       <Project>{3872c52a-a982-4023-bad5-dc6826f398ee}</Project>
       <Name>JediTournamentEntities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\StubDataAccessLayer\StubDataAccessLayer.csproj">
-      <Project>{42fcc091-0d66-487d-b84e-9e74e22a458f}</Project>
-      <Name>StubDataAccessLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -19,7 +19,12 @@ namespace JediTournamentEntities
             Caracteristiques = new List<Caracteristique>();
         }
 
-        public Jedi(int id,bool isSith,string nom)
+        public Jedi(string nom, bool isSith) : this(0, nom, isSith)
+        {
+            Caracteristiques = new List<Caracteristique>();
+        }
+
+        public Jedi(int id,string nom, bool isSith)
             : base(id)
         {
             Caracteristiques = new List<Caracteristique>();

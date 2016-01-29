@@ -50,7 +50,7 @@ namespace JediTournamentWPF
 
         private void buttonCaracteristiques_Click(object sender, RoutedEventArgs e)
         {
-            listView.ItemsSource = tm.GetCaracteristiques();
+            //listView.ItemsSource = tm.GetCaracteristiques();
         }
 
         private void buttonBonus_Click(object sender, RoutedEventArgs e)

@@ -37,16 +37,16 @@ namespace StubDataAccessLayer
         private void InitJedis()
         {
             Jedis = new List<Jedi>();
-            Jedis.Add(new Jedi(1, false, "Anakin Skywalker"));
+            Jedis.Add(new Jedi(1, "Anakin Skywalker", false));
             Jedis[0].Caracteristiques.Find(c => c.Definition == EDefCaracteristique.Force).Valeur=4;
             Jedis[0].Caracteristiques.Find(c => c.Definition == EDefCaracteristique.Sante).Valeur = 60;
-            Jedis.Add(new Jedi(2, false, "Jawal Thabeet"));
+            Jedis.Add(new Jedi(2, "Jawal Thabeet", false));
             Jedis[1].Caracteristiques.Find(c => c.Definition == EDefCaracteristique.Force).Valeur = 3;
             Jedis[1].Caracteristiques.Find(c => c.Definition == EDefCaracteristique.Sante).Valeur = 50;
-            Jedis.Add(new Jedi(3, true, "Darth Vader"));
+            Jedis.Add(new Jedi(3, "Darth Vader", true));
             Jedis[2].Caracteristiques.Find(c => c.Definition == EDefCaracteristique.Force).Valeur = 4;
             Jedis[2].Caracteristiques.Find(c => c.Definition == EDefCaracteristique.Sante).Valeur = 30;
-            Jedis.Add(new Jedi(4, true, "Jar Jar Binks"));
+            Jedis.Add(new Jedi(4, "Jar Jar Binks", true));
             Jedis[3].Caracteristiques.Find(c => c.Definition == EDefCaracteristique.Force).Valeur = 2;
             Jedis[3].Caracteristiques.Find(c => c.Definition == EDefCaracteristique.Sante).Valeur = 60;
         }
@@ -63,8 +63,8 @@ namespace StubDataAccessLayer
         private void InitMatchs()
         {
             Matchs = new List<Match>();
-            Matchs.Add(new Match(1, 1, Jedis[0], Jedis[1], EPhaseTournoi.HuitiemeFinale, Stades[0]));
-            Matchs.Add(new Match(2, 3, Jedis[2], Jedis[3], EPhaseTournoi.Finale, Stades[1]));
+            Matchs.Add(new Match(1, Jedis[0], Jedis[0], Jedis[1], EPhaseTournoi.HuitiemeFinale, Stades[0]));
+            Matchs.Add(new Match(2, Jedis[2], Jedis[2], Jedis[3], EPhaseTournoi.Finale, Stades[1]));
         }
 
         private void InitCaracteristiques(){
