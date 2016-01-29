@@ -96,7 +96,7 @@ namespace DataAccessLayer
                 SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
                 while (sqlDataReader.Read())
                 {
-                    match.ID = sqlDataReader.GetInt32(JEDI_ID);
+                    match.ID = sqlDataReader.GetInt32(MATCH_ID);
                 }
                 sqlConnection.Close();
             }
@@ -106,7 +106,7 @@ namespace DataAccessLayer
         {
             using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
             {
-                string query = string.Format("DELETE FROM Match WHERE Id=@id", match.ID);
+                string query = "DELETE FROM Match WHERE Id=@id";
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
                 sqlCommand.Parameters.AddWithValue("@id", match.ID);
                 sqlConnection.Open();

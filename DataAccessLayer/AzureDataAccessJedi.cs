@@ -83,7 +83,7 @@ namespace DataAccessLayer
         {
             using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
             {
-                string query = string.Format("DELETE FROM Jedi WHERE Id=@id", jedi.ID);
+                string query = "DELETE FROM Jedi WHERE Id=@id";
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
                 sqlCommand.Parameters.AddWithValue("@id", jedi.ID);
                 sqlConnection.Open();
