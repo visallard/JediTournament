@@ -12,29 +12,103 @@ namespace DataAccessLayer
 {
     partial class AzureDataAccess
     {
+        private const int STADE_ID = 0;
+        private const int STADE_NB_PLACES = 1;
+        private const int STADE_PLANETE = 2;
+
+        private Stade SqlDataReaderToStade(SqlDataReader sqlDataReader)
+        {
+            return new Stade(sqlDataReader.GetInt32(STADE_ID), sqlDataReader.GetInt32(STADE_ID), sqlDataReader.GetString(STADE_PLANETE));
+        }
+
         public List<Stade> GetStades()
         {
-            throw new NotImplementedException();
+            List<Stade> stades = new List<Stade>();
+            using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
+            {
+                string query = "SELECT Id, NbPlaces, Planete FROM Stade";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                sqlConnection.Open();
+                SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+                while (sqlDataReader.Read())
+                {
+                    stades.Add(SqlDataReaderToStade(sqlDataReader));
+                }
+                sqlConnection.Close();
+            }
+            return stades;
         }
 
         public Stade GetStade(int Id)
         {
-            throw new NotImplementedException();
+            Stade stade = null;
+            using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
+            {
+                string query = "SELECT Id, NbPlaces, Planete FROM Stade WHERE Id=@id";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                sqlCommand.Parameters.AddWithValue("@id", Id);
+                sqlConnection.Open();
+                SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+                while (sqlDataReader.Read())
+                {
+                    stade = SqlDataReaderToStade(sqlDataReader);
+                }
+                sqlConnection.Close();
+            }
+            return stade;
         }
         
         public void AddStade(Stade stade)
         {
-            throw new NotImplementedException();
+            using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
+            {
+                string query = "INSERT INTO Stade (NbPlaces, Planete) VALUES (@nbPlaces, @planete)";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                sqlCommand.Parameters.AddWithValue("@nbPlaces", stade.NbPlaces);
+                sqlCommand.Parameters.AddWithValue("@planete", stade.Planete);
+                sqlConnection.Open();
+                sqlCommand.ExecuteNonQuery();
+                sqlConnection.Close();
+            }
+            using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
+            {
+                string query = "SELECT IDENT_CURRENT(‘Stade’)";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                sqlConnection.Open();
+                SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+                while (sqlDataReader.Read())
+                {
+                    stade.ID = sqlDataReader.GetInt32(STADE_ID);
+                }
+                sqlConnection.Close();
+            }
         }
 
         public void DeleteStade(Stade stade)
         {
-            throw new NotImplementedException();
+            using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
+            {
+                string query = "DELETE FROM Stade WHERE Id=@id";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                sqlCommand.Parameters.AddWithValue("@id", stade.ID);
+                sqlConnection.Open();
+                sqlCommand.ExecuteNonQuery();
+                sqlConnection.Close();
+            }
         }
 
         public void UpdateStade(Stade stade)
         {
-            throw new NotImplementedException();
+            using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
+            {
+                string query = "UPDATE Stade SET NbPlaces=@nbPlaces, Planete=@planete WHERE Id=@id";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                sqlCommand.Parameters.AddWithValue("@nbPlaces", stade.NbPlaces);
+                sqlCommand.Parameters.AddWithValue("@planete", stade.Planete);
+                sqlConnection.Open();
+                sqlCommand.ExecuteNonQuery();
+                sqlConnection.Close();
+            }
         }
     }
 }
