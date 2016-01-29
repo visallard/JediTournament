@@ -54,7 +54,6 @@ namespace DataAccessLayer
             return matchs;
         }
 
-
         public Match GetMatch(int Id)
         {
             Match match = null;
@@ -76,17 +75,61 @@ namespace DataAccessLayer
 
         public void AddMatch(Match match)
         {
-            throw new NotImplementedException();
+            using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
+            {
+                string query = "INSERT INTO Match (Jedi1, Jedi2, PhaseTournoi, Stade, Vainqueur) VALUES (@jedi1, @jedi2, @phaseTournoi, @stade, @vainqueur)";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                sqlCommand.Parameters.AddWithValue("@jedi1", match.Jedi1.ID);
+                sqlCommand.Parameters.AddWithValue("@jedi2", match.Jedi2.ID);
+                sqlCommand.Parameters.AddWithValue("@phaseTournoi", (int)match.PhaseTournoi);
+                sqlCommand.Parameters.AddWithValue("@stade", match.Stade.ID);
+                sqlCommand.Parameters.AddWithValue("@vainqueur", match.Vainqueur.ID);
+                sqlConnection.Open();
+                sqlCommand.ExecuteNonQuery();
+                sqlConnection.Close();
+            }
+            using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
+            {
+                string query = "SELECT IDENT_CURRENT(‘Match’)";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                sqlConnection.Open();
+                SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+                while (sqlDataReader.Read())
+                {
+                    match.ID = sqlDataReader.GetInt32(MATCH_ID);
+                }
+                sqlConnection.Close();
+            }
         }
         
         public void DeleteMatch(Match match)
         {
-            throw new NotImplementedException();
+            using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
+            {
+                string query = "DELETE FROM Match WHERE Id=@id";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                sqlCommand.Parameters.AddWithValue("@id", match.ID);
+                sqlConnection.Open();
+                sqlCommand.ExecuteNonQuery();
+                sqlConnection.Close();
+            }
         }
         
         public void UpdateMatch(Match match)
         {
-            throw new NotImplementedException();
+            using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
+            {
+                string query = "UPDATE Match SET Jedi1=@jedi1, Jedi2=@jedi2, PhaseTournoi=@phaseTournoi, Stade=@stade, Vainqueur=@vainqueur WHERE Id=@id";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                sqlCommand.Parameters.AddWithValue("@jedi1", match.Jedi1.ID);
+                sqlCommand.Parameters.AddWithValue("@jedi2", match.Jedi2.ID);
+                sqlCommand.Parameters.AddWithValue("@phaseTournoi", (int)match.PhaseTournoi);
+                sqlCommand.Parameters.AddWithValue("@stade", match.Stade.ID);
+                sqlCommand.Parameters.AddWithValue("@vainqueur", match.Vainqueur.ID);
+                sqlConnection.Open();
+                sqlCommand.ExecuteNonQuery();
+                sqlConnection.Close();
+            }
         }
     }
 }
