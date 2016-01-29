@@ -36,13 +36,17 @@ namespace DataAccessLayer
             return new Match(sqlDataReader.GetInt32(MATCH_ID), vainqueur, jedi1, jedi2, (EPhaseTournoi) sqlDataReader.GetInt32(MATCH_PHASE_TOURNOI), stade);
         }
 
-        public List<Match> GetMatchs()
+        public List<Match> GetMatchs(int idTournoi = 0)
         {
             List<Match> matchs = new List<Match>();
             using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
             {
                 string query = "SELECT Id, Jedi1, Jedi2, PhaseTournoi, Stade, Vainqueur FROM Match";
+                if (idTournoi != 0)
+                    query += " WHERE Tournois=@tournois";
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                if (idTournoi != 0)
+                    sqlCommand.Parameters.AddWithValue("@tournoi", idTournoi);
                 sqlConnection.Open();
                 SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
                 while (sqlDataReader.Read())
@@ -53,7 +57,6 @@ namespace DataAccessLayer
             }
             return matchs;
         }
-
 
         public Match GetMatch(int Id)
         {
@@ -76,17 +79,61 @@ namespace DataAccessLayer
 
         public void AddMatch(Match match)
         {
-            throw new NotImplementedException();
+            using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
+            {
+                string query = "INSERT INTO Match (Jedi1, Jedi2, PhaseTournoi, Stade, Vainqueur) VALUES (@jedi1, @jedi2, @phaseTournoi, @stade, @vainqueur)";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                sqlCommand.Parameters.AddWithValue("@jedi1", match.Jedi1.ID);
+                sqlCommand.Parameters.AddWithValue("@jedi2", match.Jedi2.ID);
+                sqlCommand.Parameters.AddWithValue("@phaseTournoi", (int)match.PhaseTournoi);
+                sqlCommand.Parameters.AddWithValue("@stade", match.Stade.ID);
+                sqlCommand.Parameters.AddWithValue("@vainqueur", match.Vainqueur.ID);
+                sqlConnection.Open();
+                sqlCommand.ExecuteNonQuery();
+                sqlConnection.Close();
+            }
+            using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
+            {
+                string query = "SELECT IDENT_CURRENT(‘Match’)";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                sqlConnection.Open();
+                SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+                while (sqlDataReader.Read())
+                {
+                    match.ID = sqlDataReader.GetInt32(MATCH_ID);
+                }
+                sqlConnection.Close();
+            }
         }
         
         public void DeleteMatch(Match match)
         {
-            throw new NotImplementedException();
+            using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
+            {
+                string query = "DELETE FROM Match WHERE Id=@id";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                sqlCommand.Parameters.AddWithValue("@id", match.ID);
+                sqlConnection.Open();
+                sqlCommand.ExecuteNonQuery();
+                sqlConnection.Close();
+            }
         }
         
         public void UpdateMatch(Match match)
         {
-            throw new NotImplementedException();
+            using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
+            {
+                string query = "UPDATE Match SET Jedi1=@jedi1, Jedi2=@jedi2, PhaseTournoi=@phaseTournoi, Stade=@stade, Vainqueur=@vainqueur WHERE Id=@id";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                sqlCommand.Parameters.AddWithValue("@jedi1", match.Jedi1.ID);
+                sqlCommand.Parameters.AddWithValue("@jedi2", match.Jedi2.ID);
+                sqlCommand.Parameters.AddWithValue("@phaseTournoi", (int)match.PhaseTournoi);
+                sqlCommand.Parameters.AddWithValue("@stade", match.Stade.ID);
+                sqlCommand.Parameters.AddWithValue("@vainqueur", match.Vainqueur.ID);
+                sqlConnection.Open();
+                sqlCommand.ExecuteNonQuery();
+                sqlConnection.Close();
+            }
         }
     }
 }

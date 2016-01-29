@@ -1,7 +1,7 @@
 ﻿<Application x:Class="JediTournamentWPF.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             StartupUri="View/Jedis.xaml" ShutdownMode="OnLastWindowClose">
+             StartupUri="View/GestionMatchs.xaml" ShutdownMode="OnLastWindowClose">
     <Application.Resources>
          
     </Application.Resources>
