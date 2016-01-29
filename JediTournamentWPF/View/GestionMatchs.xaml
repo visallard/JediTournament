@@ -46,7 +46,7 @@
                 <Button Content="Supprimer" Grid.Row="5" x:Name="btnSupprimer" Margin="10,110,26.8,10" Width="80"/>
                 <Button Content="Ajouter" Grid.Row="5" x:Name="btnAjouter" Margin="10,73,26.8,47" Width="80"/>
             </Grid>
-            <ListBox Grid.Column="1" x:Name="listMatch">
+            <ListBox Grid.Column="1" x:Name="listMatch" Margin="5,0,0,0">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
