@@ -28,5 +28,15 @@ namespace JediTournamentWPF.View
             BusinessLayer.JediTournamentManager tm = new BusinessLayer.JediTournamentManager();
             listMatches = tm.GetMatchs();
         }
+
+        private void listMatch_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
