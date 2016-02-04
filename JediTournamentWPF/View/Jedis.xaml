@@ -15,7 +15,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <local:Jedi HorizontalAlignment="Left" Height="117" Margin="10,136,0,0" VerticalAlignment="Top" Width="278"/>
+        <local:Jedis HorizontalAlignment="Left" Height="117" Margin="10,136,0,0" VerticalAlignment="Top" Width="278"/>
         <Button x:Name="BoutonAjout" Content="Ajouter" HorizontalAlignment="Left" Margin="10,268,0,0" VerticalAlignment="Top" Width="133" Height="24" Click="BoutonAjout_Click"/>
         <Button x:Name="BoutonSupp" Content="Supprimer" HorizontalAlignment="Left" Margin="148,268,0,0" VerticalAlignment="Top" Width="140" Height="24"/>
     </Grid>

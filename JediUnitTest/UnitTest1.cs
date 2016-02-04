@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -13,7 +14,7 @@ namespace DataAccessLayer.Tests
             BusinessLayer.JediTournamentManager test = new BusinessLayer.JediTournamentManager();
             JediTournamentEntities.Jedi insert = new JediTournamentEntities.Jedi("JarJar", true);
             test.AddJedi(insert);
-            List<JediTournamentEntities.Jedi> jedis = test.GetJedis();
+            List<JediTournamentEntities.Jedi> jedis = test.GetJedis().ToList<JediTournamentEntities.Jedi>();
 
             Assert.IsTrue(jedis.Contains(insert));
         }
