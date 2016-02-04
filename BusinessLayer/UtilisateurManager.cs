@@ -17,9 +17,9 @@ namespace BusinessLayer
             return (user != null && user.Password == HashPassword(password));
         }
 
-        public void AddUser(Utilisateur user) {
-            user.Password = HashPassword(user.Password);
-            DalManager.Instance.AddUser(user);
+        public void AddUser(string login, string password) {
+            password = HashPassword(password);
+            DalManager.Instance.AddUser(new Utilisateur(login, password));
         }
 
         private string HashPassword(string password)
