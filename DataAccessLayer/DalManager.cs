@@ -14,9 +14,19 @@ namespace DataAccessLayer
 
         private DataAccess _DataAccess;
 
+        public Utilisateur GetUser(string login)
+        {
+            return _DataAccess.GetUser(login);
+        }
+
         private DalManager()
         {
             _DataAccess = new AzureDataAccess();
+        }
+
+        public void AddUser(Utilisateur user)
+        {
+            _DataAccess.AddUser(user);
         }
 
         public List<Jedi> GetJedis()
