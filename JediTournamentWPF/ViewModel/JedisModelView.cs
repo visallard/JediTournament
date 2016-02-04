@@ -11,8 +11,14 @@ namespace JediTournamentWPF.ViewModel
 {
     class JedisModelView : ViewModelBase
     {
-        private ObservableCollection<Jedi> _jedis;
-        public ObservableCollection<Jedi> Jedis
+        public event EventHandler<EventArgs> CloseNotified;
+        protected void OnCloseNotified(EventArgs e)
+        {
+            this.CloseNotified(this, e);
+        }
+
+        private ObservableCollection<JediViewModel> _jedis;
+        public ObservableCollection<JediViewModel> Jedis
         {
             get { return _jedis; }
             private set
@@ -22,12 +28,23 @@ namespace JediTournamentWPF.ViewModel
             }
         }
 
+        private JediViewModel _selectedItem;
+        public JediViewModel SelectedItem
+        {
+            get { return _selectedItem; }
+            set
+            {
+                _selectedItem = value;
+                OnPropertyChanged("SelectedItem");
+            }
+        }
+
         public JedisModelView(List<Jedi> jedisModel)
         {
-            _jedis = new ObservableCollection<Jedi>();
+            _jedis = new ObservableCollection<JediViewModel>();
             foreach (Jedi j in jedisModel)
             {
-                _jedis.Add(j);
+                _jedis.Add(new JediViewModel(j));
             }
         }
     }
