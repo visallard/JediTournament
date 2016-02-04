@@ -11,6 +11,7 @@ namespace JediTournamentWPF.ViewModel
     public class LoginViewModel : ViewModelBase
     {
         private Window _window;
+        private bool load = false;
 
         private string _login;
         public string Login
@@ -59,6 +60,7 @@ namespace JediTournamentWPF.ViewModel
 
         private void LoginIn()
         {
+            load = true;
             UtilisateurManager um = new UtilisateurManager();
             if (um.CheckConnexionUser(Login.ToLower(), Password))
             {
@@ -71,11 +73,12 @@ namespace JediTournamentWPF.ViewModel
                 Login = "";
                 Password = "";
             }
+            load = false;
         }
 
         private bool CanLoginIn()
         {
-            return (Login != string.Empty && Password != string.Empty);
+            return (!load && Login != string.Empty && Password != string.Empty);
         }
 
         private RelayCommand _SigninCommand;
@@ -96,8 +99,10 @@ namespace JediTournamentWPF.ViewModel
 
         private void Signin()
         {
+            load = true;
             UtilisateurManager um = new UtilisateurManager();
             um.AddUser(Login, Password);
+            load = false;
         }
     }
 }
