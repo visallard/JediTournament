@@ -54,12 +54,13 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Compile Include="ViewModel\JediViewModel.cs" />
-    <Compile Include="View\Jedi.xaml.cs">
-      <DependentUpon>Jedi.xaml</DependentUpon>
-    </Compile>
     <Page Include="View\GestionMatchs.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Stades.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Jedis.xaml">
       <SubType>Designer</SubType>
@@ -80,9 +81,13 @@
     <Compile Include="ViewModel\GestionMatchsViewModel.cs" />
     <Compile Include="ViewModel\JedisModelView.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
+    <Compile Include="ViewModel\StadesModelView.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="View\GestionMatchs.xaml.cs">
       <DependentUpon>GestionMatchs.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Stades.xaml.cs">
+      <DependentUpon>Stades.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Jedis.xaml.cs">
       <DependentUpon>Jedis.xaml</DependentUpon>
@@ -95,10 +100,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\Jedi.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

@@ -20,13 +20,20 @@ namespace JediTournamentWPF.View
     public partial class GestionMatchs : Window
     {
 
-        List<JediTournamentEntities.Match> listMatches;
-
         public GestionMatchs()
         {
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            // récupération des matchs
             BusinessLayer.JediTournamentManager tm = new BusinessLayer.JediTournamentManager();
-            listMatches = tm.GetMatchs();
+            IList<JediTournamentEntities.Match> listMatches = tm.GetMatchs();
+
+            // Initialisation du viewModel
+            ViewModel.GestionMatchsViewModel mvm = new ViewModel.GestionMatchsViewModel(listMatches);
+            gmatchsListView.DataContext = mvm;
         }
 
         private void listMatch_SelectionChanged(object sender, SelectionChangedEventArgs e)

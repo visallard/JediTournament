@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JediTournamentWPF.View"
         mc:Ignorable="d"
-        Title="Gestion des Matchs" Height="300" Width="726.493" Foreground="Black">
+        Title="Gestion des Matchs" Height="300" Width="726.493" Foreground="Black" Loaded="Window_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -49,7 +49,7 @@
             <ListView
                 ItemsSource="{Binding Matchs}" 
                 SelectedItem="{Binding SelectedItem}"
-                Grid.Column="1" x:Name="listMatch" SelectionChanged="listMatch_SelectionChanged">
+                Grid.Column="1" x:Name="gmatchsListView" SelectionChanged="listMatch_SelectionChanged">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Vainqueur" DisplayMemberBinding="{Binding Vainqueur}"/>

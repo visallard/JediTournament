@@ -43,7 +43,17 @@ namespace DataAccessLayer
                 }
                 sqlConnection.Close();
             }
-            // ajouter les matchs
+            foreach(var m in tournoi.Matchs)
+            {
+                try
+                {
+                    AddMatch(m);
+                }
+                catch (SqlException)
+                {
+                    UpdateMatch(m);
+                }
+            }
         }
 
         public void DeleteTournoi(Tournoi tournoi)
@@ -109,7 +119,17 @@ namespace DataAccessLayer
                 sqlCommand.ExecuteNonQuery();
                 sqlConnection.Close();
             }
-            // ajouter les matchs
+            foreach (var m in tournoi.Matchs)
+            {
+                try
+                {
+                    AddMatch(m);
+                }
+                catch(SqlException)
+                {
+                    UpdateMatch(m);
+                }
+            }
         }
     }
 }
