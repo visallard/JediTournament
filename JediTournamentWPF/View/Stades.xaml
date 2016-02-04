@@ -24,6 +24,8 @@
         <Label Name="Titre" Grid.Row="0" Grid.ColumnSpan="4" FontSize="18" Margin="5,0,0,0">Liste des Stades</Label>
         <ListView  
             Name="stadesListView"
+            SelectedItem="{Binding SelectedItem}"
+            ItemsSource="{Binding Stade}"
             Grid.Row="1" Grid.ColumnSpan="4">
             <ListView.View>
                 <GridView>

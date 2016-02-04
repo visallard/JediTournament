@@ -34,5 +34,10 @@ namespace BusinessLayer
         {
             DalManager.Instance.AddJedi(jedi);
         }
+
+        public void AddStade(Stade stade)
+        {
+            DalManager.Instance.AddStade(stade);
+        }
     }
 }
