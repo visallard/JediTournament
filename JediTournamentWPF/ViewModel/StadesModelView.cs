@@ -34,11 +34,7 @@ namespace JediTournamentWPF.ViewModel
             }
         }
         
-<<<<<<< HEAD
-        public StadesModelView(IList<Stade> stadeModel)
-=======
         public StadesModelView(IEnumerable<Stade> stadeModel)
->>>>>>> 9292f137ad2d420c12de28a2dc3f30f92c6676d1
         {
             _stades = new ObservableCollection<Stade>();
             foreach (Stade j in stadeModel)
