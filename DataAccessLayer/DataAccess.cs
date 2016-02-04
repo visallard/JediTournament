@@ -9,6 +9,7 @@ namespace DataAccessLayer
 {
     interface DataAccess
     {
+        Utilisateur GetUser(string login);
         Jedi GetJedi(int Id);
         Match GetMatch(int Id);
         Stade GetStade(int Id);
@@ -19,6 +20,7 @@ namespace DataAccessLayer
         List<Stade> GetStades();
         List<Tournoi> GetTournois();
 
+        void AddUser(Utilisateur user);
         void AddJedi(Jedi jedi);
         void AddMatch(Match match);
         void AddStade(Stade stade);

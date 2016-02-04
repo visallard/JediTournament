@@ -21,6 +21,13 @@ namespace JediTournamentEntities
             Planete = planete;
         }
 
+        public Stade(int nbPlaces, string planete)
+        {
+            Caracteristiques = new List<Caracteristique>();
+            NbPlaces = nbPlaces;
+            Planete = planete;
+        }
+
         public override string ToString()
         {
             return "Stade: id:"+ID+", Nombre de places: "+NbPlaces+", Planete: " + Planete;

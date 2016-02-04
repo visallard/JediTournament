@@ -1,4 +1,5 @@
 ﻿using BusinessLayer;
+using JediTournamentWPF.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,6 +35,11 @@ namespace JediTournamentWPF
                 win.Show();
                 this.Close();
             }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            loginWindow.DataContext = new LoginViewModel();
         }
     }
 }
