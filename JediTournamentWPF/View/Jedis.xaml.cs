@@ -29,13 +29,13 @@ namespace JediTournamentWPF.View
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //// récupération des artistes
-            //JediTournamentManager jm = new JediTournamentManager();
-            //IEnumerable<JediTournamentEntities.Jedi> jedis = jm.GetJedis();
+            // récupération des artistes
+            JediTournamentManager jm = new JediTournamentManager();
+            List<JediTournamentEntities.Jedi> jedis = jm.GetJedis();
 
-            //// Initialisation du viewModel
-            //JedisModelView jmv = new JedisModelView(jedis);
-            //jedisListView.DataContext = jmv;
+            // Initialisation du viewModel
+            JedisModelView jmv = new JedisModelView(jedis);
+            jedisListView.DataContext = jmv;
         }
 
         private void BoutonAjout_Click(object sender, RoutedEventArgs e)
