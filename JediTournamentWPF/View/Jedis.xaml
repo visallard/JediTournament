@@ -17,6 +17,6 @@
         </ListView>
         <Button x:Name="BoutonAjout" Content="Ajouter" HorizontalAlignment="Left" Margin="10,296,0,0" VerticalAlignment="Top" Width="133" Height="24" Command="{Binding Path=AddCommand}"/>
         <Button x:Name="BoutonSupp" Content="Supprimer" HorizontalAlignment="Left" Margin="148,296,0,0" VerticalAlignment="Top" Width="140" Height="24"/>
-        <local:Jedi HorizontalAlignment="Left" Height="160" Margin="10,131,0,0" VerticalAlignment="Top" Width="278"/>
+        <local:Jedi HorizontalAlignment="Left" Height="160" Margin="10,131,0,0" VerticalAlignment="Top" Width="278" DataContext="{Binding SelectedItem}"/>
     </Grid>
 </Window>

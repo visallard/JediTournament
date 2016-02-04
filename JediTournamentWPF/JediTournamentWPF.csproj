@@ -57,6 +57,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Jedi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Stades.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -86,6 +90,9 @@
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="View\GestionMatchs.xaml.cs">
       <DependentUpon>GestionMatchs.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Jedi.xaml.cs">
+      <DependentUpon>Jedi.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Stades.xaml.cs">
       <DependentUpon>Stades.xaml</DependentUpon>
