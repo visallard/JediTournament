@@ -7,17 +7,17 @@
         mc:Ignorable="d"
         Title="JediTournament - Gestion des Tournois" Height="300" Width="300" Loaded="Window_Loaded">
     <Grid>
-        <ListView x:Name="tournoisListView" HorizontalAlignment="Left" Height="208" VerticalAlignment="Top" Width="145" ItemsSource="{Binding Tournois}" SelectedItem="{Binding SelectedItem}">
+        <ListView x:Name="tournoisListView" HorizontalAlignment="Left" Height="208" VerticalAlignment="Top" Width="145" ItemsSource="{Binding Tournois}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Nom" Width="145" DisplayMemberBinding="{Binding Nom}"/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <ListView x:Name="matchsListView" HorizontalAlignment="Left" Height="208" Margin="148,0,0,0" VerticalAlignment="Top" Width="145" ItemsSource="{Binding Tournois}" SelectedItem="{Binding SelectedItem}">
+        <ListView x:Name="matchsListView" HorizontalAlignment="Left" Height="208" Margin="148,0,0,0" VerticalAlignment="Top" Width="145" ItemsSource="{Binding Matchs}" SelectedItem="{Binding SelectedItem}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Vainqueur" Width="145" DisplayMemberBinding="{Binding Matchs}"/>
+                    <GridViewColumn Header="Matchs" Width="145" DisplayMemberBinding="{Binding Vainqueur}"/>
                 </GridView>
             </ListView.View>
         </ListView>

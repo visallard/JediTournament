@@ -3,6 +3,7 @@ using JediTournamentEntities;
 using JediTournamentWPF.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,14 +30,16 @@ namespace JediTournamentWPF.View
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            JediTournamentManager jtm = new JediTournamentManager();
-            List<Tournoi> tournois = new List<Tournoi>();
+            JediTournamentManager tm = new JediTournamentManager();
+            ObservableCollection<Tournoi> tournois = new ObservableCollection<Tournoi>();
+            tournois = tm.GetTournois();
 
             // Binding des tournois
             TournoisViewModel tvm = new TournoisViewModel(tournois);
             tournoisListView.DataContext = tvm;
 
             // Binding des matchs
+            matchsListView.DataContext = tournoisListView.SelectedItem;
 
         }
     }
