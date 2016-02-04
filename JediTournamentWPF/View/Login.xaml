@@ -17,7 +17,8 @@
         <Label Content="Login :" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
         <TextBox Name="login" Text="{Binding Login}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="100" Height="26"/>
         <Label Content="Password :" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"/>
-        <PasswordBox Name="password" Password="{Binding Password}" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Width="100" Height="26"/>
-        <Button Content="Se connecter" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="26" Click="SeConnecter"/>
+        <TextBox Name="password" Text="{Binding Password}" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Width="100" Height="26"/>
+        <Button Content="S'inscrire" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="26" Command="{Binding SigninCommand}"/>
+        <Button Content="Se connecter" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="26" Command="{Binding LoginCommand}"/>
     </Grid>
 </Window>
