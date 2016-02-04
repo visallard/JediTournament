@@ -39,7 +39,7 @@ namespace JediTournamentWPF.ViewModel
             }
         }
 
-        public JedisModelView(List<Jedi> jedisModel)
+        public JedisModelView(IEnumerable<Jedi> jedisModel)
         {
             _jedis = new ObservableCollection<JediViewModel>();
             foreach (Jedi j in jedisModel)
