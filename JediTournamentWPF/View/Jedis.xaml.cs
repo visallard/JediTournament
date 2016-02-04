@@ -37,5 +37,10 @@ namespace JediTournamentWPF.View
             JedisModelView jmv = new JedisModelView(jedis);
             jedisListView.DataContext = jmv;
         }
+
+        private void BoutonAjout_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
