@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+//using DataAccessLayer;
 
 namespace JediTournamentWPF.View
 {
@@ -40,7 +41,7 @@ namespace JediTournamentWPF.View
 
         private void BoutonAjout_Click(object sender, RoutedEventArgs e)
         {
-
+         //   AzureDataAccess.AddJedi(new Jedi());
         }
     }
 }
