@@ -17,35 +17,65 @@ namespace JediTournamentWPF.ViewModel
             this.CloseNotified(this, e);
         }
 
-        //private ObservableCollection<JediViewModel> _jedis;
-        //public ObservableCollection<JediViewModel> Jedis
-        //{
-        //    get { return _jedis; }
-        //    private set
-        //    {
-        //        _jedis = value;
-        //        OnPropertyChanged("Jedis");
-        //    }
-        //}
+        private ObservableCollection<Jedi> _jedis;
+        public ObservableCollection<Jedi> Jedis
+        {
+            get { return _jedis; }
+            private set
+            {
+                _jedis = value;
+                OnPropertyChanged("Jedis");
+            }
+        }
 
-        //private JediViewModel _selectedItem;
-        //public JediViewModel SelectedItem
-        //{
-        //    get { return _selectedItem; }
-        //    set
-        //    {
-        //        _selectedItem = value;
-        //        OnPropertyChanged("SelectedItem");
-        //    }
-        //}
+        private JediViewModel _selectedItem;
+        public JediViewModel SelectedItem
+        {
+            get { return _selectedItem; }
+            set
+            {
+                _selectedItem = value;
+                OnPropertyChanged("SelectedItem");
+            }
+        }
 
-        //public JedisModelView(IEnumerable<Jedi> jedisModel)
-        //{
-        //    _jedis = new ObservableCollection<JediViewModel>();
-        //    foreach (Jedi j in jedisModel)
-        //    {
-        //        _jedis.Add(new JediViewModel(j));
-        //    }
-        //}
+        public JedisModelView(IEnumerable<Jedi> jedisModel)
+        {
+            _jedis = new ObservableCollection<Jedi>();
+            foreach (Jedi j in jedisModel)
+            {
+                _jedis.Add(j);
+            }
+        }
+
+        private RelayCommand _addCommand;
+        public System.Windows.Input.ICommand AddCommand
+        {
+            get
+            {
+                if (_addCommand == null)
+                {
+                    _addCommand = new RelayCommand(
+                        () => this.Add(),
+                        () => this.CanAdd()
+                        );
+                }
+                return _addCommand;
+            }
+        }
+
+        private bool CanAdd()
+        {
+            return true;
+        }
+
+        private void Add()
+        {
+            JediTournamentEntities.Jedi j = new JediTournamentEntities.Jedi();
+
+            this.SelectedItem = new JediViewModel(j);
+            Jedis.Add(j);
+        }
     }
+
 }

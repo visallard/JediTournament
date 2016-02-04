@@ -26,7 +26,12 @@ namespace BusinessLayer
         {
             SHA512 shaM = new SHA512Managed();
             var hash = shaM.ComputeHash(Encoding.UTF8.GetBytes(password));
-            return Encoding.UTF8.GetString(hash);
+            StringBuilder strB = new StringBuilder();
+            for(int i=0; i< hash.Length; ++i)
+            {
+                strB.Append(hash[i].ToString());
+            }
+            return strB.ToString();
         }
     }
 }

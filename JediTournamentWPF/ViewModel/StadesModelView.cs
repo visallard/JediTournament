@@ -21,6 +21,18 @@ namespace JediTournamentWPF.ViewModel
                 OnPropertyChanged("Stades");
             }
         }
+
+        private StadeControlModelView _selectedItem;
+
+        public StadeControlModelView selectedItem
+        {
+            get { return _selectedItem; }
+            set
+            {
+                _selectedItem = value;
+                OnPropertyChanged("SelectedItem");
+            }
+        }
         
         public StadesModelView(IEnumerable<Stade> stadeModel)
         {
@@ -29,6 +41,35 @@ namespace JediTournamentWPF.ViewModel
             {
                 _stades.Add(j);
             }
+        }
+
+        // Command Add
+        private RelayCommand _AddCommand;
+        
+        public System.Windows.Input.ICommand AddCommand
+        {
+            get
+            {
+                if(_AddCommand == null)
+                {
+                    _AddCommand = new RelayCommand(
+                        () => this.Add(),
+                        () => this.CanAdd()
+                        );
+                }
+            }
+        }
+
+        private bool CanAdd()
+        {
+            return true;
+        }
+
+        private void Add()
+        {
+            JediTournamentEntities.Stade a = new JediTournamentEntities.Stade(0, "<new>");
+            this.selectedItem = new StadeControlModelView(a);
+            Stade.Add(this.Add);
         }
     }
 }
