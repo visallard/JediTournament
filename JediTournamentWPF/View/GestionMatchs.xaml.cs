@@ -19,7 +19,6 @@ namespace JediTournamentWPF.View
     /// </summary>
     public partial class GestionMatchs : Window
     {
-
         public GestionMatchs()
         {
             InitializeComponent();
@@ -30,6 +29,7 @@ namespace JediTournamentWPF.View
             // récupération des matchs
             BusinessLayer.JediTournamentManager tm = new BusinessLayer.JediTournamentManager();
             IList<JediTournamentEntities.Match> listMatches = tm.GetMatchs().ToList<JediTournamentEntities.Match>();
+            IList<JediTournamentEntities.Jedi> listJedis = tm.GetJedis().ToList<JediTournamentEntities.Jedi>();
 
             // Initialisation du viewModel
             ViewModel.GestionMatchsViewModel mvm = new ViewModel.GestionMatchsViewModel(listMatches);
