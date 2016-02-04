@@ -23,7 +23,7 @@ namespace BusinessLayer
 
         public IEnumerable<Jedi> GetJedis()
         {
-            return DalManager.Instance.GetJedis().Where(j => !j.IsSith);
+            return DalManager.Instance.GetJedis();
         }
 
         public IEnumerable<Match> GetMatchs()
