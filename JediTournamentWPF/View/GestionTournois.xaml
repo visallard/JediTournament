@@ -1,0 +1,27 @@
+﻿<Window x:Class="JediTournamentWPF.View.GestionTournois"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JediTournamentWPF.View"
+        mc:Ignorable="d"
+        Title="JediTournament - Gestion des Tournois" Height="300" Width="300" Loaded="Window_Loaded">
+    <Grid>
+        <ListView x:Name="tournoisListView" HorizontalAlignment="Left" Height="208" VerticalAlignment="Top" Width="145" ItemsSource="{Binding Tournois}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Nom" Width="145" DisplayMemberBinding="{Binding Nom}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView x:Name="matchsListView" HorizontalAlignment="Left" Height="208" Margin="148,0,0,0" VerticalAlignment="Top" Width="145" ItemsSource="{Binding Matchs}" SelectedItem="{Binding SelectedItem}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Matchs" Width="145" DisplayMemberBinding="{Binding Vainqueur}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Name="addButton" Content="Ajouter" HorizontalAlignment="Left" Height="24" Margin="0,213,0,0" VerticalAlignment="Top" Width="60"/>
+        <Button Name="delButton" Content="Supprimer" HorizontalAlignment="Left" Height="24" Margin="83,213,0,0" VerticalAlignment="Top" Width="60"/>
+    </Grid>
+</Window>

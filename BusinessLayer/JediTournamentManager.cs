@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DataAccessLayer;
 using JediTournamentEntities;
+using System.Collections.ObjectModel;
 
 namespace BusinessLayer
 {
@@ -22,7 +23,7 @@ namespace BusinessLayer
 
         public IEnumerable<Jedi> GetJedis()
         {
-            return DalManager.Instance.GetJedis().Where(j => !j.IsSith);
+            return DalManager.Instance.GetJedis();
         }
 
         public IEnumerable<Match> GetMatchs()
@@ -35,6 +36,10 @@ namespace BusinessLayer
             DalManager.Instance.AddJedi(jedi);
         }
 
+        public IEnumerable<Tournoi> GetTournois()
+        {
+            return DalManager.Instance.GetTournois();
+        }
         public void AddStade(Stade stade)
         {
             DalManager.Instance.AddStade(stade);
