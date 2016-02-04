@@ -11,6 +11,22 @@ namespace JediTournamentWPF.ViewModel
 {
     class TournoisViewModel : ViewModelBase
     {
+        private Tournoi _SelectedItem;
+
+        public Tournoi SelectedItem
+        {
+            private set
+            {
+                _SelectedItem = value;
+                OnPropertyChanged("SelectedItem");
+            }
+
+            get
+            {
+                return _SelectedItem;
+            }
+        }
+
         private ObservableCollection<Tournoi> _tournois;
 
         public ObservableCollection<Tournoi> Tournois
