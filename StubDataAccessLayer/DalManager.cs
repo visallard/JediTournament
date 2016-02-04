@@ -78,8 +78,8 @@ namespace StubDataAccessLayer
         private void InitUtilisateurs()
         {
             utilisateurs = new List<Utilisateur>();
-            utilisateurs.Add(new Utilisateur("login", "password", "nom", "prenom"));
-            utilisateurs.Add(new Utilisateur("test", "test", "test", "test"));
+            utilisateurs.Add(new Utilisateur(1, "login", "password", "nom", "prenom"));
+            utilisateurs.Add(new Utilisateur(2, "test", "test", "test", "test"));
         }
     }
 }

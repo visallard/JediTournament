@@ -29,5 +29,10 @@ namespace BusinessLayer
         {
             return DalManager.Instance.GetMatchs();
         }
+
+        public void AddJedi(Jedi jedi)
+        {
+            DalManager.Instance.AddJedi(jedi);
+        }
     }
 }
