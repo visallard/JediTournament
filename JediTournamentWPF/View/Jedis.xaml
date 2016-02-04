@@ -15,6 +15,6 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <local:Jedi HorizontalAlignment="Left" Height="117" Margin="10,147,0,0" VerticalAlignment="Top" Width="278"/>
+        <local:Jedis HorizontalAlignment="Left" Height="117" Margin="10,147,0,0" VerticalAlignment="Top" Width="278"/>
     </Grid>
 </Window>
