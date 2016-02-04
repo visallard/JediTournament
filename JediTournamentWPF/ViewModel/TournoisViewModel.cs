@@ -42,7 +42,7 @@ namespace JediTournamentWPF.ViewModel
             }
         }
 
-        public TournoisViewModel(ObservableCollection<Tournoi> tournoisModel)
+        public TournoisViewModel(IEnumerable<Tournoi> tournoisModel)
         {
             _tournois = new ObservableCollection<Tournoi>();
             foreach (Tournoi t in tournoisModel)

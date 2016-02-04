@@ -31,7 +31,7 @@ namespace JediTournamentWPF.View
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             JediTournamentManager tm = new JediTournamentManager();
-            ObservableCollection<Tournoi> tournois = new ObservableCollection<Tournoi>();
+            IEnumerable<Tournoi> tournois = new IEnumerable<Tournoi>();
             tournois = tm.GetTournois();
 
             // Binding des tournois
