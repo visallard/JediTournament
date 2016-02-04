@@ -10,30 +10,24 @@ namespace BusinessLayer
 {
     public class JediTournamentManager
     {
-        public List<Stade> GetStades()
+        public IEnumerable<Stade> GetStades()
         {
-            List<Stade> liste = new List<Stade>();
-            liste.AddRange(DalManager.Instance.GetStades());
-            return liste;
+            return DalManager.Instance.GetStades();
         }
 
-        public List<Jedi> GetSiths()
+        public IEnumerable<Jedi> GetSiths()
         {
-            List<Jedi> liste = new List<Jedi>();
-            liste.AddRange(DalManager.Instance.GetJedis().Where(j => j.IsSith));
-            return liste;
+            return DalManager.Instance.GetJedis().Where(j => j.IsSith);
         }
 
-        public List<Jedi> GetJedis()
+        public IEnumerable<Jedi> GetJedis()
         {
-            return DalManager.Instance.GetJedis();
+            return DalManager.Instance.GetJedis().Where(j => !j.IsSith);
         }
 
-        public List<Match> GetMatchs()
+        public IEnumerable<Match> GetMatchs()
         {
-            List<Match> liste = new List<Match>();
-            liste.AddRange(DalManager.Instance.GetMatchs().Where(m => m.Stade.NbPlaces>200 && m.Jedi1.IsSith && m.Jedi2.IsSith));
-            return liste;
+            return DalManager.Instance.GetMatchs();
         }
     }
 }
