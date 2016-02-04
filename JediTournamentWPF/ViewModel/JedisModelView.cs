@@ -17,8 +17,8 @@ namespace JediTournamentWPF.ViewModel
             this.CloseNotified(this, e);
         }
 
-        private ObservableCollection<JediViewModel> _jedis;
-        public ObservableCollection<JediViewModel> Jedis
+        private ObservableCollection<JedisModelView> _jedis;
+        public ObservableCollection<JedisModelView> Jedis
         {
             get { return _jedis; }
             private set
@@ -28,8 +28,8 @@ namespace JediTournamentWPF.ViewModel
             }
         }
 
-        private JediViewModel _selectedItem;
-        public JediViewModel SelectedItem
+        private JedisModelView _selectedItem;
+        public JedisModelView SelectedItem
         {
             get { return _selectedItem; }
             set
@@ -41,10 +41,10 @@ namespace JediTournamentWPF.ViewModel
 
         public JedisModelView(List<Jedi> jedisModel)
         {
-            _jedis = new ObservableCollection<JediViewModel>();
+            _jedis = new ObservableCollection<JedisModelView>();
             foreach (Jedi j in jedisModel)
             {
-                _jedis.Add(new JediViewModel(j));
+                _jedis.Add(new JedisModelView(j));
             }
         }
     }
