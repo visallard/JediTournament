@@ -1,5 +1,5 @@
-﻿using BusinessLayer;
-using JediTournamentEntities;
+﻿using JediTournamentEntities;
+using BusinessLayer;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;

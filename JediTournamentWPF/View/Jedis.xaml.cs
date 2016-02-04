@@ -1,5 +1,5 @@
-﻿using BusinessLayer;
-using JediTournamentEntities;
+﻿using JediTournamentEntities;
+using BusinessLayer;
 using JediTournamentWPF.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -30,18 +30,13 @@ namespace JediTournamentWPF.View
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //// récupération des artistes
-            //JediTournamentManager jm = new JediTournamentManager();
-            //IEnumerable<JediTournamentEntities.Jedi> jedis = jm.GetJedis();
+            // récupération des jedis
+            JediTournamentManager jm = new JediTournamentManager();
+            IEnumerable<JediTournamentEntities.Jedi> jedis = jm.GetJedis();
 
-            //// Initialisation du viewModel
-            //JedisModelView jmv = new JedisModelView(jedis);
-            //jedisListView.DataContext = jmv;
-        }
-
-        private void BoutonAjout_Click(object sender, RoutedEventArgs e)
-        {
-         //   AzureDataAccess.AddJedi(new Jedi());
+            // Initialisation du viewModel
+            JedisModelView jmv = new JedisModelView(jedis);
+            JedisView.DataContext = jmv;
         }
     }
 }

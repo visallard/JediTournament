@@ -6,16 +6,16 @@
         xmlns:local="clr-namespace:JediTournamentWPF.View"
         mc:Ignorable="d"
         Title="Jedis" Height="360.595" Width="306.067" Loaded="Window_Loaded">
-    <Grid>
+    <Grid Name="JedisView">
         <ListView  
-            Name="jedisListView" Margin="0,0,0,204" ItemsSource="{Binding Jedis}" SelectedItem="{Binding SelectedItem}">
+             Margin="0,0,0,204" ItemsSource="{Binding Jedis}" SelectedItem="{Binding SelectedItem}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Nom}"/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="BoutonAjout" Content="Ajouter" HorizontalAlignment="Left" Margin="10,296,0,0" VerticalAlignment="Top" Width="133" Height="24" Click="BoutonAjout_Click"/>
+        <Button x:Name="BoutonAjout" Content="Ajouter" HorizontalAlignment="Left" Margin="10,296,0,0" VerticalAlignment="Top" Width="133" Height="24" Command="{Binding Path=AddCommand}"/>
         <Button x:Name="BoutonSupp" Content="Supprimer" HorizontalAlignment="Left" Margin="148,296,0,0" VerticalAlignment="Top" Width="140" Height="24"/>
         <local:Jedi HorizontalAlignment="Left" Height="160" Margin="10,131,0,0" VerticalAlignment="Top" Width="278"/>
     </Grid>
