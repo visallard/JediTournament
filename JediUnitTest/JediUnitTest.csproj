@@ -53,6 +53,32 @@
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
+      <Project>{e301a89b-220f-495d-8e3e-c0dbff3f979f}</Project>
+      <Name>BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
+      <Project>{B558E9D6-8233-4F1B-ADFE-9A89E6C6932F}</Project>
+      <Name>DataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JediTournamentConsole\JediTournamentConsole.csproj">
+      <Project>{6967c0fa-e8f9-4b41-8f0d-7e2cd808b4be}</Project>
+      <Name>JediTournamentConsole</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JediTournamentEntities\JediTournamentEntities.csproj">
+      <Project>{3872c52a-a982-4023-bad5-dc6826f398ee}</Project>
+      <Name>JediTournamentEntities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JediTournamentWPF\JediTournamentWPF.csproj">
+      <Project>{4eb46f69-0621-469c-bc2a-165cd10ce799}</Project>
+      <Name>JediTournamentWPF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StubDataAccessLayer\StubDataAccessLayer.csproj">
+      <Project>{42fcc091-0d66-487d-b84e-9e74e22a458f}</Project>
+      <Name>StubDataAccessLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
