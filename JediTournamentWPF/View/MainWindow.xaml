@@ -1,29 +1,21 @@
 ﻿<Window x:Class="JediTournamentWPF.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Jedi Tournament" Height="400" Width="600" WindowStartupLocation="CenterScreen">
+        Title="Jedi Tournament" Height="300" Width="200" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Button x:Name="buttonJedis" Content="Jedis" Grid.Column="0" Click="buttonJedis_Click"/>
-            <Button x:Name="buttonStades" Content="Stades" Grid.Column="1" Click="buttonStades_Click"/>
-            <Button x:Name="buttonMatchs" Content="Matchs" Grid.Column="2" Click="buttonMatchs_Click"/>
-            <Button x:Name="buttonCaracteristiques" Content="Caractéristiques" Grid.Column="3" Click="buttonCaracteristiques_Click"/>
-            <Button x:Name="buttonBonus" Content="Bonus" Grid.Column="4" Click="buttonBonus_Click"/>
-            <Button x:Name="buttonExporter" Content="Exporter les Jedis" Grid.Column="5" Click="buttonExporter_Click"/>
-        </Grid>
-        <ListView x:Name="listView"  Grid.Row="1">
-        </ListView>
+        <Label Grid.Row="0" Content="Jedi Tournament" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+        <Button Grid.Row="1" x:Name="buttonJedis" Content="Jedis" Click="buttonJedis_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Width="120" Height="30"/>
+        <Button Grid.Row="2" x:Name="buttonStades" Content="Stades" Click="buttonStades_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Width="120" Height="30"/>
+        <Button Grid.Row="3" x:Name="buttonMatchs" Content="Matchs" Click="buttonMatchs_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Width="120" Height="30"/>
+        <Button Grid.Row="4" x:Name="buttonTournois" Content="Tournois" Click="buttonTournois_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Width="120" Height="30"/>
+        <Button Grid.Row="5" x:Name="buttonExporter" Content="Exporter les Jedis" Grid.Column="5" Click="buttonExporter_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Width="120" Height="30"/>
     </Grid>
 </Window>

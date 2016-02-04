@@ -39,7 +39,7 @@ namespace JediTournamentWPF.View
             tournoisListView.DataContext = tvm;
 
             // Binding des matchs
-            matchsListView.DataContext = tvm.SelectedItem.Matchs;
+            //matchsListView.DataContext = tvm.SelectedItem.Matchs;
         }
     }
 }

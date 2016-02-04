@@ -17,6 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml.Serialization;
+using JediTournamentWPF.View;
 
 namespace JediTournamentWPF
 {
@@ -35,27 +36,26 @@ namespace JediTournamentWPF
 
         private void buttonStades_Click(object sender, RoutedEventArgs e)
         {
-            listView.ItemsSource = tm.GetStades();
+            Window w = new Stades();
+            w.Show();
         }
 
         private void buttonJedis_Click(object sender, RoutedEventArgs e)
         {
-            listView.ItemsSource = tm.GetJedis();
+            Window w = new Jedis();
+            w.Show();
         }
 
         private void buttonMatchs_Click(object sender, RoutedEventArgs e)
         {
-            listView.ItemsSource = tm.GetMatchs();
+            Window w = new GestionMatchs();
+            w.Show();
         }
 
-        private void buttonCaracteristiques_Click(object sender, RoutedEventArgs e)
+        private void buttonTournois_Click(object sender, RoutedEventArgs e)
         {
-            //listView.ItemsSource = tm.GetCaracteristiques();
-        }
-
-        private void buttonBonus_Click(object sender, RoutedEventArgs e)
-        {
-            listView.ItemsSource = tm.GetSiths();
+            Window w = new GestionTournois();
+            w.Show();
         }
 
         private void buttonExporter_Click(object sender, RoutedEventArgs e)
@@ -67,8 +67,8 @@ namespace JediTournamentWPF
             if (sfd.ShowDialog(this) == true)
             {
                 StreamWriter stream = new StreamWriter(sfd.FileName);
-                XmlSerializer serializer = new XmlSerializer(typeof(List<Jedi>));
-                serializer.Serialize(stream, tm.GetJedis());
+                XmlSerializer serializer = new XmlSerializer(typeof(List<JediTournamentEntities.Jedi>));
+                serializer.Serialize(stream, new List<JediTournamentEntities.Jedi>(tm.GetJedis()));
                 stream.Close();
             }
         }
