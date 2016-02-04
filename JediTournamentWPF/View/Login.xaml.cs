@@ -26,20 +26,9 @@ namespace JediTournamentWPF
             InitializeComponent();
         }
 
-        private void SeConnecter(object sender, RoutedEventArgs e)
-        {
-            UtilisateurManager um = new UtilisateurManager();
-            if (um.CheckConnexionUser(login.Text.ToLower(), password.Password))
-            {
-                MainWindow win = new MainWindow();
-                win.Show();
-                this.Close();
-            }
-        }
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            loginWindow.DataContext = new LoginViewModel();
+            loginWindow.DataContext = new LoginViewModel(this);
         }
     }
 }

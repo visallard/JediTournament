@@ -17,16 +17,21 @@ namespace BusinessLayer
             return (user != null && user.Password == HashPassword(password));
         }
 
-        public void AddUser(Utilisateur user) {
-            user.Password = HashPassword(user.Password);
-            DalManager.Instance.AddUser(user);
+        public void AddUser(string login, string password) {
+            password = HashPassword(password);
+            DalManager.Instance.AddUser(new Utilisateur(login, password));
         }
 
         private string HashPassword(string password)
         {
             SHA512 shaM = new SHA512Managed();
             var hash = shaM.ComputeHash(Encoding.UTF8.GetBytes(password));
-            return Encoding.UTF8.GetString(hash);
+            StringBuilder strB = new StringBuilder();
+            for(int i=0; i< hash.Length; ++i)
+            {
+                strB.Append(hash[i].ToString());
+            }
+            return strB.ToString();
         }
     }
 }
