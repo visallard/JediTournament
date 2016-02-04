@@ -17,35 +17,35 @@ namespace JediTournamentWPF.ViewModel
             this.CloseNotified(this, e);
         }
 
-        private ObservableCollection<JedisModelView> _jedis;
-        public ObservableCollection<JedisModelView> Jedis
-        {
-            get { return _jedis; }
-            private set
-            {
-                _jedis = value;
-                OnPropertyChanged("Jedis");
-            }
-        }
+        //private ObservableCollection<JediViewModel> _jedis;
+        //public ObservableCollection<JediViewModel> Jedis
+        //{
+        //    get { return _jedis; }
+        //    private set
+        //    {
+        //        _jedis = value;
+        //        OnPropertyChanged("Jedis");
+        //    }
+        //}
 
-        private JedisModelView _selectedItem;
-        public JedisModelView SelectedItem
-        {
-            get { return _selectedItem; }
-            set
-            {
-                _selectedItem = value;
-                OnPropertyChanged("SelectedItem");
-            }
-        }
+        //private JediViewModel _selectedItem;
+        //public JediViewModel SelectedItem
+        //{
+        //    get { return _selectedItem; }
+        //    set
+        //    {
+        //        _selectedItem = value;
+        //        OnPropertyChanged("SelectedItem");
+        //    }
+        //}
 
-        public JedisModelView(List<Jedi> jedisModel)
-        {
-            _jedis = new ObservableCollection<JedisModelView>();
-            foreach (Jedi j in jedisModel)
-            {
-                _jedis.Add(new JedisModelView(j));
-            }
-        }
+        //public JedisModelView(IEnumerable<Jedi> jedisModel)
+        //{
+        //    _jedis = new ObservableCollection<JediViewModel>();
+        //    foreach (Jedi j in jedisModel)
+        //    {
+        //        _jedis.Add(new JediViewModel(j));
+        //    }
+        //}
     }
 }

@@ -22,7 +22,7 @@ namespace JediTournamentWPF.ViewModel
             }
         }
         
-        public StadesModelView(List<Stade> stadeModel)
+        public StadesModelView(IEnumerable<Stade> stadeModel)
         {
             _stades = new ObservableCollection<Stade>();
             foreach (Stade j in stadeModel)

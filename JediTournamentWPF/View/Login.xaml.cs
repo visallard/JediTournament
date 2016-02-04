@@ -1,4 +1,5 @@
 ﻿using BusinessLayer;
+using JediTournamentWPF.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,15 +26,9 @@ namespace JediTournamentWPF
             InitializeComponent();
         }
 
-        private void SeConnecter(object sender, RoutedEventArgs e)
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            UtilisateurManager um = new UtilisateurManager();
-            if (um.CheckConnexionUser(login.Text.ToLower(), password.Password))
-            {
-                MainWindow win = new MainWindow();
-                win.Show();
-                this.Close();
-            }
+            loginWindow.DataContext = new LoginViewModel(this);
         }
     }
 }

@@ -9,14 +9,31 @@
       Title="GestionStades" Height="300" Width="300" Foreground="Black">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="75"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="75"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label Name="Titre" Grid.Row="0" Grid.ColumnSpan="4" FontSize="18" Margin="5,0,0,0">Liste des Stades</Label>
         <ListView  
             Name="stadesListView"
-            ItemsSource="{Binding Stades}">
+            Grid.Row="1" Grid.ColumnSpan="4">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Planete" DisplayMemberBinding="{Binding planete}" Width="50"/>
+                    <GridViewColumn Header="NbPlaces" DisplayMemberBinding="{Binding NbPlaces}" Width="75"/>
                 </GridView>
             </ListView.View>
         </ListView>
+        <Button Grid.Row="4" Grid.Column="0" x:Name="button1" Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75"/>
+        <Button Grid.Row="4" Grid.Column="2" x:Name="button2" Content="Remove" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75"/>
+
     </Grid>
 </Window>

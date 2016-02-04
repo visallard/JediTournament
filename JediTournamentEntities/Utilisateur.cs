@@ -6,21 +6,23 @@ using System.Threading.Tasks;
 
 namespace JediTournamentEntities
 {
-    public class Utilisateur
+    public class Utilisateur : EntityObject
     {
-        public Utilisateur(string login, string password, string nom, string prenom)
+        public Utilisateur(string login, string password) : this(0, login, password)
         {
-            Nom = nom;
-            Prenom = prenom;
+        }
+
+        public Utilisateur(int ID, string login, string password) : base(ID)
+        {
             Login = login;
             Password = password;
         }
+
         public Utilisateur()
         {
 
         }
-        public string Nom { get; set; }
-        public string Prenom { get; set; }
+
         public string Login { get; set; }
         public string Password { get; set; }
     }
