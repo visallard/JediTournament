@@ -39,7 +39,7 @@ namespace JediTournamentWPF.ViewModel
             }
         }
 
-        public GestionMatchsViewModel(IList<JediTournamentEntities.Match> matchesModel)
+        public GestionMatchsViewModel(IEnumerable<JediTournamentEntities.Match> matchesModel)
         {
             _matchs = new ObservableCollection<GestionMatchsViewModel>();
             foreach (JediTournamentEntities.Match a in matchesModel)

@@ -29,7 +29,7 @@ namespace JediTournamentWPF.View
         {
             // récupération des matchs
             BusinessLayer.JediTournamentManager tm = new BusinessLayer.JediTournamentManager();
-            IList<JediTournamentEntities.Match> listMatches = tm.GetMatchs();
+            IEnumerable<JediTournamentEntities.Match> listMatches = tm.GetMatchs();
 
             // Initialisation du viewModel
             ViewModel.GestionMatchsViewModel mvm = new ViewModel.GestionMatchsViewModel(listMatches);

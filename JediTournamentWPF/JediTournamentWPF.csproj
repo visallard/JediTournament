@@ -53,7 +53,6 @@
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
-    <Compile Include="ViewModel\JediViewModel.cs" />
     <Page Include="View\GestionMatchs.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -84,6 +83,7 @@
     </Compile>
     <Compile Include="ViewModel\GestionMatchsViewModel.cs" />
     <Compile Include="ViewModel\JedisModelView.cs" />
+    <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
     <Compile Include="ViewModel\StadesModelView.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />

@@ -31,7 +31,7 @@ namespace JediTournamentWPF.View
         {
             // récupération des stades
             JediTournamentManager jm = new JediTournamentManager();
-            List<Stade> stades = jm.GetStades();
+            IEnumerable<Stade> stades = jm.GetStades();
 
             // Initialisation du viewModel
             StadesModelView jmv = new StadesModelView(stades);

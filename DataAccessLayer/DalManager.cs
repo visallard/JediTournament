@@ -14,9 +14,19 @@ namespace DataAccessLayer
 
         private DataAccess _DataAccess;
 
+        public Utilisateur GetUser(string login)
+        {
+            return _DataAccess.GetUser(login);
+        }
+
         private DalManager()
         {
             _DataAccess = new AzureDataAccess();
+        }
+
+        public void AddUser(Utilisateur user)
+        {
+            _DataAccess.AddUser(user);
         }
 
         public List<Jedi> GetJedis()
@@ -34,6 +44,10 @@ namespace DataAccessLayer
             return _DataAccess.GetStades();
         }
 
+        public List<Tournoi> GetTournois()
+        {
+            return _DataAccess.GetTournois();
+        }
 
         public void AddJedi(Jedi jedi)
         {
@@ -48,6 +62,11 @@ namespace DataAccessLayer
         public void AddStade(Stade stade)
         {
             _DataAccess.AddStade(stade);
+        }
+
+        public void AddTournoi(Tournoi tournoi)
+        {
+            _DataAccess.AddTournoi(tournoi);
         }
 
         public void UpdateJedi(Jedi jedi)
@@ -65,6 +84,11 @@ namespace DataAccessLayer
             _DataAccess.UpdateStade(stade);
         }
 
+        public void UpdateTournoi(Tournoi tournoi)
+        {
+            _DataAccess.UpdateTournoi(tournoi);
+        }
+
         public void DeleteJedi(Jedi jedi)
         {
             _DataAccess.DeleteJedi(jedi);
@@ -78,6 +102,11 @@ namespace DataAccessLayer
         public void DeleteStade(Stade stade)
         {
             _DataAccess.DeleteStade(stade);
+        }
+
+        public void DeleteTournoi(Tournoi tournoi)
+        {
+            _DataAccess.DeleteTournoi(tournoi);
         }
 
         public static DalManager Instance
