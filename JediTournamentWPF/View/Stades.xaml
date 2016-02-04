@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:JediTournamentWPF.View"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-      Title="GestionStades" Height="300" Width="300" Foreground="Black">
+      Title="Gestion des stades" Height="300" Width="300" Foreground="Black">
 
     <Grid>
         <Grid.RowDefinitions>
