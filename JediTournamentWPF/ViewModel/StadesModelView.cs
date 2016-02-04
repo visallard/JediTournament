@@ -57,6 +57,7 @@ namespace JediTournamentWPF.ViewModel
                         () => this.CanAdd()
                         );
                 }
+                return _AddCommand;
             }
         }
 
@@ -67,9 +68,6 @@ namespace JediTournamentWPF.ViewModel
 
         private void Add()
         {
-            JediTournamentEntities.Stade a = new JediTournamentEntities.Stade(0, "<new>");
-            this.selectedItem = new StadeControlModelView(a);
-            Stade.Add(this.Add);
         }
     }
 }
