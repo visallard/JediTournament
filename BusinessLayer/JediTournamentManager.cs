@@ -41,13 +41,40 @@ namespace BusinessLayer
             DalManager.Instance.DeleteJedi(jedi);
         }
 
-        public IEnumerable<Tournoi> GetTournois()
+        public void AddMatch(Match match)
         {
-            return DalManager.Instance.GetTournois();
+            DalManager.Instance.AddMatch(match);
         }
+
+        public void DelMatch(Match match)
+        {
+            DalManager.Instance.DeleteMatch(match);
+        }
+
         public void AddStade(Stade stade)
         {
             DalManager.Instance.AddStade(stade);
+        }
+
+        public void DelStade(Stade stade)
+        {
+            DalManager.Instance.DeleteStade(stade);
+        }
+
+        public void AddTournoi(Tournoi tournoi)
+        {
+            DalManager.Instance.AddTournoi(tournoi);
+        }
+
+        public void DelTournoi(Tournoi tournoi)
+        {
+            DalManager.Instance.DeleteTournoi(tournoi);
+        }
+
+        //public IEnumerable<Tournoi> GetTournois()
+        public IEnumerable<Tournoi> GetTournois() // Quand tu ajoute la BBD pour les tournois décommente tes lignes et change mes "ObservableCollection" par le bon type stp
+        {
+            return DalManager.Instance.GetTournois();
         }
     }
 }

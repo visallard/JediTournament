@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using BusinessLayer;
 using JediTournamentEntities;
 
-namespace DataAccessLayer.Tests
+namespace JediTests
 {
     [TestClass()]
     public class JediTests
