@@ -55,6 +55,8 @@
     <Compile Include="JediTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MatchTests.cs" />
+    <Compile Include="StadeTests.cs" />
+    <Compile Include="TournoiTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
