@@ -36,6 +36,11 @@ namespace BusinessLayer
             DalManager.Instance.AddJedi(jedi);
         }
 
+        public void DelJedi(Jedi jedi)
+        {
+            DalManager.Instance.DeleteJedi(jedi);
+        }
+
         //public IEnumerable<Tournoi> GetTournois()
         public ObservableCollection<Tournoi> GetTournois() // Quand tu ajoute la BBD pour les tournois décommente tes lignes et change mes "ObservableCollection" par le bon type stp
         {

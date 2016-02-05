@@ -2,6 +2,8 @@
 using System.Linq;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using BusinessLayer;
+using JediTournamentEntities;
 
 namespace DataAccessLayer.Tests
 {
@@ -11,24 +13,20 @@ namespace DataAccessLayer.Tests
         [TestMethod()]
         public void AddJediTest()
         {
-            BusinessLayer.JediTournamentManager test = new BusinessLayer.JediTournamentManager();
-            JediTournamentEntities.Jedi insert = new JediTournamentEntities.Jedi("Palpatine", true);
-            test.AddJedi(insert);
-            List<JediTournamentEntities.Jedi> jedis = test.GetJedis().ToList<JediTournamentEntities.Jedi>();
-
-            Assert.IsTrue(jedis.Last().ID == insert.ID && jedis.Last().Nom == insert.Nom);
+            JediTournamentManager jtm = new JediTournamentManager();
+            Jedi newJedi = new Jedi("Palpatine", true);
+            jtm.AddJedi(newJedi);
+            var jedis = jtm.GetJedis();
+            Assert.IsTrue(jedis.Last().Equals(newJedi));
         }
-    }
-}
 
-namespace JediUnitTest
-{
-    [TestClass]
-    public class UnitTest1
-    {
-        [TestMethod]
-        public void TestMethod1()
+        [TestMethod()]
+        public void DelJediTest()
         {
+            JediTournamentManager jtm = new JediTournamentManager();
+            var jedis = jtm.GetJedis();
+            jtm.DelJedi(jedis.Last());
+            Assert.IsTrue(jedis.Count()-1 == jtm.GetJedis().Count());
         }
     }
 }
