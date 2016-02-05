@@ -43,7 +43,7 @@ namespace DataAccessLayer
             {
                 string query = "SELECT Id, Jedi1, Jedi2, PhaseTournoi, Stade, Vainqueur FROM Match";
                 if (idTournoi != 0)
-                    query += " WHERE Tournois=@tournois";
+                    query += " WHERE Tournoi=@tournoi";
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
                 if (idTournoi != 0)
                     sqlCommand.Parameters.AddWithValue("@tournoi", idTournoi);
