@@ -8,7 +8,7 @@ using JediTournamentEntities;
 namespace DataAccessLayer.Tests
 {
     [TestClass()]
-    public class UnitTest1
+    public class JediTests
     {
         [TestMethod()]
         public void AddJediTest()
