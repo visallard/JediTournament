@@ -39,12 +39,12 @@ namespace DataAccessLayer
         {
             using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
             {
-                string query = "INSERT INTO \"User\" (Login, Password) VALUES (@login, @password); SELECT SCOPE_IDENTITY();";
+                string query = "INSERT INTO \"User\" (Login, Password) VALUES (@login, @password); SELECT SCOPE_IDENTITY()";
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
                 sqlCommand.Parameters.AddWithValue("@login", user.Login);
                 sqlCommand.Parameters.AddWithValue("@password", user.Password);
                 sqlConnection.Open();
-                user.ID=sqlCommand.ExecuteNonQuery();
+                user.ID= System.Convert.ToInt32(sqlCommand.ExecuteScalar());
                 sqlConnection.Close();
             }
         }

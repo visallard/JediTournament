@@ -16,7 +16,7 @@ namespace DataAccessLayer.Tests
             test.AddJedi(insert);
             List<JediTournamentEntities.Jedi> jedis = test.GetJedis().ToList<JediTournamentEntities.Jedi>();
 
-            Assert.IsTrue(jedis.Exists(x => x.Nom== "Palpatine"));
+            Assert.IsTrue(jedis.Last().ID == insert.ID && jedis.Last().Nom == insert.Nom);
         }
     }
 }

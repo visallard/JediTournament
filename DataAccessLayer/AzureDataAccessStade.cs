@@ -62,12 +62,12 @@ namespace DataAccessLayer
         {
             using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
             {
-                string query = "INSERT INTO Stade (NbPlaces, Planete) VALUES (@nbPlaces, @planete); SELECT SCOPE_IDENTITY();";
+                string query = "INSERT INTO Stade (NbPlaces, Planete) VALUES (@nbPlaces, @planete); SELECT SCOPE_IDENTITY()";
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
                 sqlCommand.Parameters.AddWithValue("@nbPlaces", stade.NbPlaces);
                 sqlCommand.Parameters.AddWithValue("@planete", stade.Planete);
                 sqlConnection.Open();
-                stade.ID=sqlCommand.ExecuteNonQuery();
+                stade.ID= System.Convert.ToInt32(sqlCommand.ExecuteScalar());
                 sqlConnection.Close();
             }
         }

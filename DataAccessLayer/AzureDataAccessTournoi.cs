@@ -24,11 +24,11 @@ namespace DataAccessLayer
         {
             using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
             {
-                string query = "INSERT INTO Tournoi (Nom) VALUES (@nom); SELECT SCOPE_IDENTITY();";
+                string query = "INSERT INTO Tournoi (Nom) VALUES (@nom); SELECT SCOPE_IDENTITY()";
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
                 sqlCommand.Parameters.AddWithValue("@nom", tournoi.Nom);
                 sqlConnection.Open();
-                tournoi.ID=sqlCommand.ExecuteNonQuery();
+                tournoi.ID= System.Convert.ToInt32(sqlCommand.ExecuteScalar());
                 sqlConnection.Close();
             }
             foreach(var m in tournoi.Matchs)

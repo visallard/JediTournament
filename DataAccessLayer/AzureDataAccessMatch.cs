@@ -81,7 +81,7 @@ namespace DataAccessLayer
         {
             using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
             {
-                string query = "INSERT INTO Match (Jedi1, Jedi2, PhaseTournoi, Stade, Vainqueur) VALUES (@jedi1, @jedi2, @phaseTournoi, @stade, @vainqueur); SELECT SCOPE_IDENTITY();";
+                string query = "INSERT INTO Match (Jedi1, Jedi2, PhaseTournoi, Stade, Vainqueur) VALUES (@jedi1, @jedi2, @phaseTournoi, @stade, @vainqueur); SELECT SCOPE_IDENTITY()";
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
                 sqlCommand.Parameters.AddWithValue("@jedi1", match.Jedi1.ID);
                 sqlCommand.Parameters.AddWithValue("@jedi2", match.Jedi2.ID);
@@ -89,7 +89,7 @@ namespace DataAccessLayer
                 sqlCommand.Parameters.AddWithValue("@stade", match.Stade.ID);
                 sqlCommand.Parameters.AddWithValue("@vainqueur", match.Vainqueur.ID);
                 sqlConnection.Open();
-                match.ID=sqlCommand.ExecuteNonQuery();
+                match.ID= System.Convert.ToInt32(sqlCommand.ExecuteScalar());
                 sqlConnection.Close();
             }
         }
