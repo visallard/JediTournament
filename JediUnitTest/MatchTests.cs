@@ -13,9 +13,9 @@ namespace MatchTests
         public void AddMatchTest()
         {
             JediTournamentManager jtm = new JediTournamentManager();
-            Jedi jedi1 = new Jedi("Jean-Paul", true);
-            Jedi jedi2 = new Jedi("Jean-Jacques", true);
-            Stade stade = new Stade(12, "Naboo");
+            Jedi jedi1 = jtm.GetJedis().Last() ;
+            Jedi jedi2 = jtm.GetJedis().First();
+            Stade stade = jtm.GetStades().First();
             Match newMatch = new Match(12,jedi1,jedi1,jedi2,EPhaseTournoi.DemiFinale, stade);
             jtm.AddMatch(newMatch);
             var matchs = jtm.GetMatchs();
