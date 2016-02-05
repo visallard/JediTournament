@@ -64,7 +64,7 @@ namespace DataAccessLayer
             Tournoi tournoi = null;
             using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
             {
-                string query = "SELECT Id, Nom FROM Tournois WHERE Id=@id";
+                string query = "SELECT Id, Nom FROM Tournoi WHERE Id=@id";
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
                 sqlCommand.Parameters.AddWithValue("@id", Id);
                 sqlConnection.Open();
@@ -83,7 +83,7 @@ namespace DataAccessLayer
             List<Tournoi> tournois = new List<Tournoi>();
             using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
             {
-                string query = "SELECT Id, Nom FROM Tournois";
+                string query = "SELECT Id, Nom FROM \"Tournoi\"";
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
                 sqlConnection.Open();
                 SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
