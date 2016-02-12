@@ -24,5 +24,5 @@ Réalisation d'un web service accompagné d'une application web.
 
 ### Auteurs
 
- * Romain SAULAS
- * Julien USSON
+ * Anne-Lise MICHEL
+ * Victor SALLARD
