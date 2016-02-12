@@ -17,6 +17,27 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAcce
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JediUnitTest", "JediUnitTest\JediUnitTest.csproj", "{F06B4B7D-E7C5-4AD0-8878-0CB4F9150751}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebService", "..\..\Documents\Visual Studio 2015\WebSites\WebService\", "{45EDC2B5-C8E5-4FA5-869F-D83C193EB625}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_65485"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\Documents\Visual Studio 2015\WebSites\WebService\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_65485\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_65485"
+		Release.AspNetCompiler.PhysicalPath = "..\..\Documents\Visual Studio 2015\WebSites\WebService\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_65485\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "65485"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +72,10 @@ Global
 		{F06B4B7D-E7C5-4AD0-8878-0CB4F9150751}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F06B4B7D-E7C5-4AD0-8878-0CB4F9150751}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F06B4B7D-E7C5-4AD0-8878-0CB4F9150751}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45EDC2B5-C8E5-4FA5-869F-D83C193EB625}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45EDC2B5-C8E5-4FA5-869F-D83C193EB625}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45EDC2B5-C8E5-4FA5-869F-D83C193EB625}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{45EDC2B5-C8E5-4FA5-869F-D83C193EB625}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
