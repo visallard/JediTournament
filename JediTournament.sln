@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JediTournamentConsole", "JediTournamentConsole\JediTournamentConsole.csproj", "{6967C0FA-E8F9-4B41-8F0D-7E2CD808B4BE}"
 EndProject
@@ -17,30 +17,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAcce
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JediUnitTest", "JediUnitTest\JediUnitTest.csproj", "{F06B4B7D-E7C5-4AD0-8878-0CB4F9150751}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebService", "..\..\..\Documents\Visual Studio 2015\WebSites\WebService\", "{E26DF62B-F5DA-477A-A443-7A20155D9CA7}"
-	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_56619"
-		Debug.AspNetCompiler.PhysicalPath = "..\..\..\Documents\Visual Studio 2015\WebSites\WebService\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_56619\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_56619"
-		Release.AspNetCompiler.PhysicalPath = "..\..\..\Documents\Visual Studio 2015\WebSites\WebService\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_56619\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "56619"
-		DefaultWebSiteLanguage = "Visual C#"
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CD6CC614-261A-4DC8-AF4D-BFBB25D892F0}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web service", "Web service\Web service.csproj", "{32AE6F1B-CDA9-4F69-8643-823874EF1C13}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3872C52A-A982-4023-BAD5-DC6826F398EE} = {3872C52A-A982-4023-BAD5-DC6826F398EE}
+		{E301A89B-220F-495D-8E3E-C0DBFF3F979F} = {E301A89B-220F-495D-8E3E-C0DBFF3F979F}
 	EndProjectSection
 EndProject
 Global
@@ -77,10 +62,10 @@ Global
 		{F06B4B7D-E7C5-4AD0-8878-0CB4F9150751}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F06B4B7D-E7C5-4AD0-8878-0CB4F9150751}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F06B4B7D-E7C5-4AD0-8878-0CB4F9150751}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E26DF62B-F5DA-477A-A443-7A20155D9CA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E26DF62B-F5DA-477A-A443-7A20155D9CA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E26DF62B-F5DA-477A-A443-7A20155D9CA7}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{E26DF62B-F5DA-477A-A443-7A20155D9CA7}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{32AE6F1B-CDA9-4F69-8643-823874EF1C13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32AE6F1B-CDA9-4F69-8643-823874EF1C13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32AE6F1B-CDA9-4F69-8643-823874EF1C13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32AE6F1B-CDA9-4F69-8643-823874EF1C13}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
